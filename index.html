@@ -10,26 +10,28 @@
       http-equiv="Content-Security-Policy"
       content="
         default-src 'self';
+        connect-src 'self' https://barisolgun-portfolio-api.netlify.app;
         font-src 'self' https://fonts.gstatic.com;
         style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-        img-src 'self' data:;
-        script-src 'self';
+        img-src 'self' data: https://barisolgun.com;
+        frame-src 'self' https://www.google.com;
+        script-src 'self' 'unsafe-eval' https://www.google.com https://www.gstatic.com;
       "
     />
 
     <meta
       name="description"
-      content="Hello, I'm Barış, a fullstack developer. I develop websites using React.js, Next.js, Express.js, and Tailwind CSS"
+      content="Hello, I'm Barış. I develop websites using React.js, Next.js, Express.js, and Tailwind CSS"
     />
 
     <meta
       property="og:description"
-      content="Hello, I'm Barış, a fullstack developer. I develop websites using React.js, Next.js, Express.js, and Tailwind CSS"
+      content="Hello, I'm Barış. I develop websites using React.js, Next.js, Express.js, and Tailwind CSS"
     />
 
     <meta property="og:title" content="Barış Olgun - Fullstack Web Developer" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://i.ibb.co/1szPLMz/logo-1.jpg" />
+    <meta property="og:image" content="https://barisolgun.com/favicon/apple-touch-icon.png" />
     <meta property="og:url" content="https://barisolgun.com/" />
     <link rel="canonical" href="https://barisolgun.com/" />
 
