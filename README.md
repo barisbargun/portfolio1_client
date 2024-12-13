@@ -1,50 +1,83 @@
-# React + TypeScript + Vite
+<div align="center">
+  <br />
+      <img src="./.github/screenshot.avif" alt="Project Banner">
+  <br />
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+  <div>
+    <img src="https://img.shields.io/badge/-React_JS-black?style=for-the-badge&logoColor=white&logo=react&color=61DAFB" alt="react.js" />
+    <img src="https://img.shields.io/badge/Framer%20Motion-000000?style=for-the-badge&logo=framer&logoColor=white" alt="framer-motion" />
+    <img src="https://img.shields.io/badge/-Tailwind_CSS-black?style=for-the-badge&logoColor=white&logo=tailwindcss&color=06B6D4" alt="tailwindcss" />
+    <img src="https://img.shields.io/badge/Three.js-000000?style=for-the-badge&logo=three.js&logoColor=white" alt="three.js" />
+  </div>
 
-Currently, two official plugins are available:
+  <h3 align="center">A Personal Portfolio</h3>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+   <div align="center">
+    A personal portfolio with information about you, work experience, projects and a contact area.
+    </div>
+</div>
 
-## Expanding the ESLint configuration
+## 📋 <a name="table">Table of Contents</a>
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. [Introduction](#introduction)
+2. [Tech Stack](#tech-stack)
+3. [Features](#features)
+4. [Quick Start](#quick-start)
 
-- Configure the top-level `parserOptions` property like this:
+## <a name="introduction">Introduction</a>
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname
-    }
-  }
-})
+A personal portfolio website developed with React.js. It contains 6 sections along with the home page. Includes many motions, 3D models, dynamic cards, etc. supported by Framer-motion, Three.js and Aceternity.ui.
+
+## <a name="introduction">Tech Stack</a>
+
+- Typescript
+- React.js
+- Vite
+- TailwindCSS
+- Framer Motion
+- Three.js
+- Aceternity UI
+- Shadcn UI
+
+## <a name="features">Features</a>
+
+**Dark and Light Mode**: Quickly and seamlessly switch to dark or light mode.
+
+**Interactive Animations**: Utilizes animations powered by framer motion and Aceternity ui
+
+**Responsive Design**: Ensures optimal display and functionality across all devices.
+
+## <a name="quick-start">Quick Start</a>
+
+Follow these steps to set up the project locally on your machine.
+
+**Prerequisites**
+
+Make sure you have the following installed on your machine:
+
+- [Git](https://git-scm.com/)
+- [Node.js](https://nodejs.org/en)
+- A Package Manager ([npm](https://www.npmjs.com/), [bun](https://bun.sh/), etc.)
+
+**Cloning the Repository**
+
+```bash
+git clone https://github.com/barisbargun/portfolio1_client.git
+cd portfolio1_client
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+**Installation**
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+Install the project dependencies:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules
-  }
-})
+```bash
+npm install
 ```
+
+**Running the Project**
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173) in your browser to view the project.
