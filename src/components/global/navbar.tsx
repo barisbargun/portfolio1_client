@@ -52,6 +52,8 @@ export const Navbar = () => {
           <ButtonModeToggle className="lg:hidden" />
         </div>
       </header>
+
+      {/** Mobile Nav */}
       <motion.ul
         variants={{
           initial: {
@@ -69,7 +71,7 @@ export const Navbar = () => {
         initial="initial"
         animate={openMobileNav ? 'animate' : 'initial'}
         className={cn(
-          'fixed bottom-0 right-0 top-0 z-40 w-full flex-col gap-6 border-[6px] border-border bg-background/90 backdrop-blur-sm flex-center lg:hidden'
+          'fixed bottom-0 right-0 top-0 z-40 w-full flex-col gap-6 bg-background/90 backdrop-blur-sm flex-center lg:hidden'
         )}
       >
         {Object.values(menuLinkConfig).map((v) => (
