@@ -122,8 +122,8 @@ export const ContactForm = ({ className, ...props }: Props) => {
             />
           </Suspense>
         )}
-        <Button type="submit" variant="secondary" size="lg">
-          Submit
+        <Button disabled={sending} type="submit" variant="secondary" size="lg">
+          {sending ? 'Sending' : 'Submit'}
         </Button>
       </form>
     </Form>
