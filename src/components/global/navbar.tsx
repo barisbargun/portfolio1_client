@@ -24,7 +24,6 @@ export const Navbar = () => {
             setOpen={setOpenMobileNav}
           />
 
-          {/** // TODO: Make this shorter */}
           <div className="animate-shine !bg-clip-text font-bold uppercase tracking-[0.2rem] text-transparent drop-shadow-whiteGlow [background:radial-gradient(circle_at_center,theme(colors.slate.100_/_85%),transparent)_-200%_50%_/_200%_100%_no-repeat,theme(colors.slate.800)] after:absolute after:left-0 after:top-0 after:size-full after:[content:''] dark:[background:radial-gradient(circle_at_center,theme(colors.slate.900_/_85%),transparent)_-200%_50%_/_200%_100%_no-repeat,theme(colors.slate.100)] md:tracking-[0.5rem]">
             <strong>{siteConfig.author}</strong>
           </div>

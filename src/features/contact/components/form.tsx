@@ -43,7 +43,6 @@ export const ContactForm = ({ className, ...props }: Props) => {
 
   async function onSubmit(values: z.infer<typeof contactSchema>) {
     const recaptchaValue = recaptchaRef?.current?.getValue()
-    console.log(recaptchaValue, sending)
     if (recaptchaValue && !sending) {
       setSending(true)
 

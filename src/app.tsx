@@ -180,7 +180,8 @@ export const App = () => {
 
       {/** Contact */}
       <PageSection
-        nestedClassName="flex min-h-[45rem] flex-col-reverse items-center justify-between gap-10 lg:flex-row"
+        id={menuLinkConfig.contact.link}
+        nestedClassName="flex min-h-[45rem] flex-col-reverse items-center justify-between lg:gap-10 lg:flex-row"
         ref={contactRef}
       >
         <motion.div
@@ -195,17 +196,13 @@ export const App = () => {
           initial="initial"
           animate="animate"
         >
-          <div
-            id={menuLinkConfig.contact.link}
-            className="absolute -mt-20 size-5 lg:-mt-24 xl:-mt-28"
-          />
           <PageHeader>
             <PageHeaderNav>Get In Touch</PageHeaderNav>
             <PageHeaderHeading>Contact</PageHeaderHeading>
           </PageHeader>
           <ContactForm className="mt-10 focus:border-none focus:outline-0 focus:ring-0" />
         </motion.div>
-        <div className="min-h-[260px]">
+        <div>
           {contactView && (
             <>
               <Suspense>
@@ -222,21 +219,23 @@ export const App = () => {
                   <CanvasStars className="!pointer-events-none" />
                 </motion.div>
               </Suspense>
-              <Suspense>
-                <motion.div
-                  className="h-[260px] w-fit min-w-[350px] sm:h-[350px] xl:h-[400px] xl:min-w-[400px] 2xl:h-[500px] 2xl:min-w-[500px]"
-                  variants={motions.variants.fadeIn({
-                    direction: 'right',
-                    duration: 3,
-                    delay: 1.5,
-                    directionAmount: 250
-                  })}
-                  initial="initial"
-                  animate="animate"
-                >
-                  <CanvasEarth />
-                </motion.div>
-              </Suspense>
+              {!isMobile && (
+                <Suspense>
+                  <motion.div
+                    className="h-[260px] w-fit min-w-[350px] sm:h-[350px] xl:h-[400px] xl:min-w-[400px] 2xl:h-[500px] 2xl:min-w-[500px]"
+                    variants={motions.variants.fadeIn({
+                      direction: 'right',
+                      duration: 3,
+                      delay: 1.5,
+                      directionAmount: 250
+                    })}
+                    initial="initial"
+                    animate="animate"
+                  >
+                    <CanvasEarth />
+                  </motion.div>
+                </Suspense>
+              )}
             </>
           )}
         </div>
