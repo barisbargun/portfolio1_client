@@ -63,7 +63,6 @@ export default tseslint.config(
 
       'simple-import-sort/imports': 'warn',
 
-      // 'import/no-cycle': 'error',
       'import/newline-after-import': 'warn',
       'import/no-duplicates': 'warn',
       'import/no-named-as-default-member': 'off',
