@@ -202,43 +202,39 @@ export const App = () => {
           </PageHeader>
           <ContactForm className="mt-10 focus:border-none focus:outline-0 focus:ring-0" />
         </motion.div>
-        <div>
-          {contactView && (
-            <>
-              <Suspense>
-                <motion.div
-                  className="pointer-events-none absolute left-0 top-0 size-full"
-                  variants={motions.variants.fadeIn({
-                    duration: 3,
-                    delay: 2,
-                    directionAmount: 0
-                  })}
-                  initial="initial"
-                  animate="animate"
-                >
-                  <CanvasStars className="!pointer-events-none" />
-                </motion.div>
-              </Suspense>
-              {!isMobile && (
-                <Suspense>
-                  <motion.div
-                    className="h-[260px] w-fit min-w-[350px] sm:h-[350px] xl:h-[400px] xl:min-w-[400px] 2xl:h-[500px] 2xl:min-w-[500px]"
-                    variants={motions.variants.fadeIn({
-                      direction: 'right',
-                      duration: 3,
-                      delay: 1.5,
-                      directionAmount: 250
-                    })}
-                    initial="initial"
-                    animate="animate"
-                  >
-                    <CanvasEarth />
-                  </motion.div>
-                </Suspense>
-              )}
-            </>
-          )}
-        </div>
+        {!isMobile && contactView && (
+          <>
+            <Suspense>
+              <motion.div
+                className="pointer-events-none absolute left-0 top-0 size-full"
+                variants={motions.variants.fadeIn({
+                  duration: 3,
+                  delay: 2,
+                  directionAmount: 0
+                })}
+                initial="initial"
+                animate="animate"
+              >
+                <CanvasStars className="!pointer-events-none" />
+              </motion.div>
+            </Suspense>
+            <Suspense>
+              <motion.div
+                className="h-[260px] w-fit min-w-[350px] sm:h-[350px] xl:h-[400px] xl:min-w-[400px] 2xl:h-[500px] 2xl:min-w-[500px]"
+                variants={motions.variants.fadeIn({
+                  direction: 'right',
+                  duration: 3,
+                  delay: 1.5,
+                  directionAmount: 250
+                })}
+                initial="initial"
+                animate="animate"
+              >
+                <CanvasEarth />
+              </motion.div>
+            </Suspense>
+          </>
+        )}
       </PageSection>
 
       {/** Credits */}
