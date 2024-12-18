@@ -166,7 +166,7 @@ export const App = () => {
             <motion.li
               key={project.title}
               variants={motions.variants.fadeIn({
-                direction: 'down',
+                direction: isMobile ? 'left' : 'down',
                 duration: 1,
                 delay: 0.5
               })}
@@ -193,8 +193,7 @@ export const App = () => {
             delay: 0.6,
             directionAmount: 250
           })}
-          initial="initial"
-          animate="animate"
+          {...motions.showOnlyViewOnce}
         >
           <PageHeader>
             <PageHeaderNav>Get In Touch</PageHeaderNav>
