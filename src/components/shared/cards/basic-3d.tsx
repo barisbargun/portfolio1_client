@@ -8,14 +8,14 @@ import { cn } from '@/lib/utils'
 type Props = HTMLAttributes<HTMLDivElement> & AboutConfig['roles'][0]
 
 const CardBasic3D = forwardRef<HTMLDivElement, Props>(
-  ({ image, text, className, style, ...props }, ref) => {
+  ({ image, text, className, ...props }, ref) => {
     return (
       <CardContainer
         className={cn(
           'relative h-full w-44 overflow-hidden rounded-xl border border-border bg-card p-[1px] py-10 text-center shadowCard',
           className
         )}
-        style={{ perspective: '70px', ...style }}
+        perspective="70px"
         ref={ref}
         {...props}
       >

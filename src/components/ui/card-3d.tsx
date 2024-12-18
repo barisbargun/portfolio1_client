@@ -5,18 +5,21 @@ import React, { createContext, useEffect, useRef, useState } from 'react'
 
 import { cn } from '@/lib/utils'
 import { useMouseEnter } from '@/hooks/mouse-enter'
+import { useIsMobile } from '@/hooks/is-mobile'
 
 const MouseEnterContext = createContext<
   [boolean, React.Dispatch<React.SetStateAction<boolean>>] | undefined
 >(undefined)
 
 type CardContainerProps = React.HTMLAttributes<HTMLDivElement> & {
+  perspective?: string
   children?: React.ReactNode
   containerClassName?: string
 }
 
 const CardContainer = React.forwardRef<HTMLDivElement, CardContainerProps>(
-  ({ children, className, containerClassName, style, ...props }, ref) => {
+  ({ perspective = '600px', children, className, containerClassName, style, ...props }, ref) => {
+    const isMobile = useIsMobile()
     const containerRef = useRef<HTMLDivElement>(null)
     const [isMouseEntered, setIsMouseEntered] = useState(false)
 
@@ -38,12 +41,19 @@ const CardContainer = React.forwardRef<HTMLDivElement, CardContainerProps>(
       setIsMouseEntered(false)
       containerRef.current.style.transform = `rotateY(0deg) rotateX(0deg)`
     }
+
+    const mouseEvents = {
+      onMouseEnter: handleMouseEnter,
+      onMouseLeave: handleMouseLeave,
+      onMouseMove: handleMouseMove
+    }
+
     return (
       <MouseEnterContext.Provider value={[isMouseEntered, setIsMouseEntered]}>
         <div
           className={cn('flex h-full items-center justify-center', containerClassName)}
           style={{
-            perspective: '600px',
+            perspective: isMobile ? 'none' : perspective,
             ...style
           }}
           ref={ref}
@@ -58,9 +68,7 @@ const CardContainer = React.forwardRef<HTMLDivElement, CardContainerProps>(
             style={{
               transformStyle: 'preserve-3d'
             }}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            onMouseMove={handleMouseMove}
+            {...(!isMobile ? { ...mouseEvents } : {})}
           >
             {children}
           </div>
@@ -110,10 +118,11 @@ const CardItem = ({
 }) => {
   const ref = useRef<HTMLDivElement>(null)
   const [isMouseEntered] = useMouseEnter(MouseEnterContext)
+  const isMobile = useIsMobile()
 
   useEffect(() => {
     const handleAnimations = () => {
-      if (!ref.current) return
+      if (!ref.current || isMobile) return
       ref.current.style.transform = isMouseEntered
         ? `translateX(${translateX}px) translateY(${translateY}px) translateZ(${translateZ}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg)`
         : `translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg)`
