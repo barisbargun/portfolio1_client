@@ -1,7 +1,7 @@
 /* eslint-disable unicorn/prefer-ternary */
 import { useEffect } from 'react'
 
-function useScrollLock(lock) {
+export function useScrollLock(lock: boolean): void {
   useEffect(() => {
     if (lock)
       document.body.style.overflow = 'hidden' // Disable scrolling
@@ -12,5 +12,3 @@ function useScrollLock(lock) {
     }
   }, [lock])
 }
-
-export default useScrollLock

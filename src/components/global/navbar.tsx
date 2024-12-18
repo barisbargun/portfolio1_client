@@ -3,7 +3,7 @@ import { useState } from 'react'
 
 import { MenuLinkConfig, menuLinkConfig } from '@/constants/nav'
 import { siteConfig } from '@/constants/site'
-import useScrollLock from '@/hooks/scroll-lock'
+import { useScrollLock } from '@/hooks/scroll-lock'
 import { cn } from '@/lib/utils'
 
 import { ButtonMobileNavMenu } from '../shared/buttons/mobile-nav-menu'
