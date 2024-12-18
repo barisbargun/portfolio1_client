@@ -1,19 +1,16 @@
 import { PointMaterial, Points, Preload } from '@react-three/drei'
 import { Canvas, CanvasProps, useFrame } from '@react-three/fiber'
 import { useInView } from 'framer-motion'
+// @ts-expect-error no types
 import * as random from 'maath/random/dist/maath-random.esm'
 import { Suspense, useRef, useState } from 'react'
 
 import { useTheme } from '@/components/global/theme-provider'
-import { useIsMobile } from '@/hooks/is-mobile'
 
 const Stars = () => {
   const { theme } = useTheme()
   const ref = useRef<any>()
-  const isMobile = useIsMobile()
-  const [sphere] = useState(() =>
-    random.inSphere(new Float32Array(isMobile ? 2502 : 5001), { radius: 1.2 })
-  )
+  const [sphere] = useState(() => random.inSphere(new Float32Array(5001), { radius: 1.2 }))
   useFrame((_state, delta) => {
     ref.current.rotation.x -= delta / 10
     ref.current.rotation.y -= delta / 15
