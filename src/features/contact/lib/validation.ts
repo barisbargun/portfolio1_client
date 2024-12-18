@@ -1,7 +1,9 @@
-import { z } from 'zod'
+import { z } from '@/lib/zod'
 
-export const contactSchema = z.object({
-  name: z.string().min(3, { message: 'You should enter at least 3 characters' }).max(2200),
-  email: z.string().email({ message: 'You should enter a valid email' }),
-  message: z.string().min(12, { message: 'You should enter at least 12 characters' }).max(2200)
+const contactSchema = z.object({
+  name: z.string().setLengths(7, 100),
+  email: z.string().setLengths(0, 100).email({ message: 'You should enter a valid email' }),
+  message: z.string().setLengths(20, 800)
 })
+
+export { contactSchema }
