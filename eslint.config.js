@@ -10,16 +10,13 @@ import importPlugin from 'eslint-plugin-import'
 import react from 'eslint-plugin-react'
 import tailwindcss from 'eslint-plugin-tailwindcss'
 import jsxA11y from 'eslint-plugin-jsx-a11y'
-import testingLibrary from 'eslint-plugin-testing-library'
-import jestDom from 'eslint-plugin-jest-dom'
-import vitest from 'eslint-plugin-vitest'
 import eslintConfigPrettier from 'eslint-config-prettier'
 
 export default tseslint.config(
   { ignores: ['dist'] },
   {
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
-    files: ['**/*.{ts,tsx}'],
+    files: ['src/**/*.{ts,tsx}'],
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser
@@ -29,12 +26,9 @@ export default tseslint.config(
       'react-refresh': reactRefresh,
       'simple-import-sort': simpleImportSort,
       'jsx-a11y': jsxA11y,
-      'testing-library': testingLibrary,
-      'jest-dom': jestDom,
       unicorn: unicorn,
       import: importPlugin,
       tailwindcss: tailwindcss,
-      vitest: vitest,
       react: react
     },
     rules: {
