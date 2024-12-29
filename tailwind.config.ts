@@ -1,9 +1,5 @@
-/* eslint-disable @typescript-eslint/no-require-imports */
-/* eslint-disable unicorn/prefer-module */
-
 import { toSrcset as svgToDataUri } from 'mini-svg-data-uri'
 import type { Config } from 'tailwindcss'
-import * as colors from 'tailwindcss/colors'
 import flattenColorPalette from 'tailwindcss/lib/util/flattenColorPalette'
 
 const config = {
