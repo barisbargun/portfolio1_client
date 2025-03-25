@@ -1,7 +1,9 @@
 import axios from 'axios'
 
+import { env } from '@/config/env'
+
 export default axios.create({
-  baseURL: `${import.meta.env.VITE_API_URL}/api`,
+  baseURL: `${env.API_URL}/api`,
   headers: { 'Content-Type': 'application/json' },
   withCredentials: true
 })

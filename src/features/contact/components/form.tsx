@@ -16,6 +16,7 @@ import {
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
+import { env } from '@/config/env'
 import { cn } from '@/lib/utils'
 
 import { createMessage } from '../api/create-message'
@@ -116,7 +117,7 @@ export const ContactForm = ({ className, ...props }: Props) => {
         {inView && (
           <Suspense>
             <ReCAPTCHA
-              sitekey={import.meta.env.VITE_RECAPTCHA_KEY}
+              sitekey={env.RECAPTCHA_KEY}
               ref={recaptchaRef}
               className="w-full max-sm:flex-center"
             />
