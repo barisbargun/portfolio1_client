@@ -4,7 +4,7 @@ import { VerticalTimelineElement } from 'react-vertical-timeline-component'
 
 import { IconStar } from '@/components/icons/star'
 import { Small } from '@/components/ui/typography'
-import { ExperiencesConfig } from '@/constants/sections/experiences'
+import { ExperiencesConfig } from '@/config/sections/experiences'
 
 type Props = ExperiencesConfig
 

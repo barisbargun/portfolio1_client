@@ -2,7 +2,7 @@ import { forwardRef, HTMLAttributes } from 'react'
 
 import { CardBody, CardContainer, CardItem } from '@/components/ui/card-3d'
 import { Meteors } from '@/components/ui/card-meteor'
-import { AboutConfig } from '@/constants/sections/about'
+import { AboutConfig } from '@/config/sections/about'
 import { cn } from '@/lib/utils'
 
 type Props = HTMLAttributes<HTMLDivElement> & AboutConfig['roles'][0]

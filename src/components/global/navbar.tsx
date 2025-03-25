@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 
-import { MenuLinkConfig, menuLinkConfig } from '@/constants/nav'
-import { siteConfig } from '@/constants/site'
+import { MenuLinkConfig, menuLinkConfig } from '@/config/nav'
+import { siteConfig } from '@/config/site'
 import { useScrollLock } from '@/hooks/scroll-lock'
 import { cn } from '@/lib/utils'
 
