@@ -3,7 +3,6 @@ import globals from 'globals'
 import tseslint from 'typescript-eslint'
 
 import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
 import unicorn from 'eslint-plugin-unicorn'
 import simpleImportSort from 'eslint-plugin-simple-import-sort'
 import importPlugin from 'eslint-plugin-import'
@@ -23,7 +22,6 @@ export default tseslint.config(
     },
     plugins: {
       'react-hooks': reactHooks,
-      'react-refresh': reactRefresh,
       'simple-import-sort': simpleImportSort,
       'jsx-a11y': jsxA11y,
       unicorn: unicorn,
@@ -35,7 +33,6 @@ export default tseslint.config(
       ...react.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules,
       ...unicorn.configs.recommended.rules,
-      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
       'linebreak-style': ['error', 'unix'],
 
       'tailwindcss/enforces-shorthand': 'warn',
@@ -95,20 +92,7 @@ export default tseslint.config(
         }
       ],
 
-      'unicorn/prevent-abbreviations': [
-        'warn',
-        {
-          replacements: {
-            props: false,
-            prev: false,
-            docs: false,
-            params: false,
-            ref: false,
-            env: false,
-            e: false
-          }
-        }
-      ],
+      'unicorn/prevent-abbreviations': 'off',
       'unicorn/no-empty-file': 'off',
 
       '@typescript-eslint/no-explicit-any': ['off'],
@@ -132,7 +116,6 @@ export default tseslint.config(
     files: ['src/assets/**/*.ts'],
     rules: {
       'import/no-anonymous-default-export': 'off',
-      'unicorn/prevent-abbreviations': 'off',
       'simple-import-sort/imports': 'off'
     }
   },
