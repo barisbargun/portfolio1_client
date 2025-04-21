@@ -34,7 +34,6 @@ const CanvasStars = lazy(() => import('./components/shared/canvases/stars'))
 export const App = () => {
   const [contactRef, contactView] = useInView({ triggerOnce: true, delay: 100 })
   const isMobile = useIsMobile()
-
   return (
     <>
       {/** Home */}

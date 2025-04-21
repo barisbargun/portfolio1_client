@@ -30,7 +30,7 @@ export const ContactForm = ({ className, ...props }: Props) => {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true })
 
-  const recaptchaRef = useRef<any>()
+  const recaptchaRef = useRef<any>(null)
   const [sending, setSending] = useState(false)
 
   const form = useForm<z.infer<typeof contactSchema>>({

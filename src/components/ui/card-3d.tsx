@@ -93,6 +93,19 @@ const CardBody = ({ children, className }: { children: React.ReactNode; classNam
   )
 }
 
+type CardItem = {
+  as?: React.ElementType
+  children?: React.ReactNode
+  className?: string
+  translateX?: number | string
+  translateY?: number | string
+  translateZ?: number | string
+  rotateX?: number | string
+  rotateY?: number | string
+  rotateZ?: number | string
+  [key: string]: any
+}
+
 const CardItem = ({
   as: Tag = 'div',
   children,
@@ -104,18 +117,7 @@ const CardItem = ({
   rotateY = 0,
   rotateZ = 0,
   ...rest
-}: {
-  as?: React.ElementType
-  children?: React.ReactNode
-  className?: string
-  translateX?: number | string
-  translateY?: number | string
-  translateZ?: number | string
-  rotateX?: number | string
-  rotateY?: number | string
-  rotateZ?: number | string
-  [key: string]: any
-}) => {
+}: CardItem) => {
   const ref = useRef<HTMLDivElement>(null)
   const [isMouseEntered] = useMouseEnter(MouseEnterContext)
   const isMobile = useIsMobile()
@@ -131,6 +133,7 @@ const CardItem = ({
   }, [isMouseEntered])
 
   return (
+    // @ts-expect-error Tag type gives error
     <Tag ref={ref} className={cn('w-fit transition duration-200 ease-linear', className)} {...rest}>
       {children}
     </Tag>
