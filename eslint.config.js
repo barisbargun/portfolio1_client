@@ -1,21 +1,19 @@
 import js from '@eslint/js'
+import eslintConfigPrettier from 'eslint-config-prettier'
+import importPlugin from 'eslint-plugin-import'
+import jsxA11y from 'eslint-plugin-jsx-a11y'
+import react from 'eslint-plugin-react'
+import reactHooks from 'eslint-plugin-react-hooks'
+import simpleImportSort from 'eslint-plugin-simple-import-sort'
+import unicorn from 'eslint-plugin-unicorn'
 import globals from 'globals'
 import tseslint from 'typescript-eslint'
-
-import reactHooks from 'eslint-plugin-react-hooks'
-import unicorn from 'eslint-plugin-unicorn'
-import simpleImportSort from 'eslint-plugin-simple-import-sort'
-import importPlugin from 'eslint-plugin-import'
-import react from 'eslint-plugin-react'
-import tailwindcss from 'eslint-plugin-tailwindcss'
-import jsxA11y from 'eslint-plugin-jsx-a11y'
-import eslintConfigPrettier from 'eslint-config-prettier'
 
 export default tseslint.config(
   { ignores: ['dist'] },
   {
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
-    files: ['src/**/*.{ts,tsx}'],
+    files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser
@@ -26,7 +24,6 @@ export default tseslint.config(
       'jsx-a11y': jsxA11y,
       unicorn: unicorn,
       import: importPlugin,
-      tailwindcss: tailwindcss,
       react: react
     },
     rules: {
@@ -34,9 +31,6 @@ export default tseslint.config(
       ...reactHooks.configs.recommended.rules,
       ...unicorn.configs.recommended.rules,
       'linebreak-style': ['error', 'unix'],
-
-      'tailwindcss/enforces-shorthand': 'warn',
-      'tailwindcss/no-unnecessary-arbitrary-value': 'warn',
 
       'react/prop-types': 'off',
       'react/react-in-jsx-scope': 'off',

@@ -1,4 +1,4 @@
-import { Context, useContext } from 'react'
+import { type Context, useContext } from 'react'
 
 export const useMouseEnter = (context: Context<any>) => {
   const _context = useContext(context)

@@ -7,7 +7,7 @@ type HeadingProps = React.HTMLAttributes<HTMLHeadingElement> & {
 const H1 = ({ as: Tag = 'h1', className, ...props }: HeadingProps) => (
   <Tag
     className={cn(
-      'scroll-m-20 text-5xl font-extrabold sm:text-5xl xl:text-6xl 2xl:text-7xl',
+      'scroll-m-20 text-5xl font-extrabold sm:text-6xl lg:text-5xl xl:text-6xl 2xl:text-7xl',
       className
     )}
     {...props}
@@ -15,7 +15,10 @@ const H1 = ({ as: Tag = 'h1', className, ...props }: HeadingProps) => (
 )
 
 const H2 = ({ as: Tag = 'h2', className, ...props }: HeadingProps) => (
-  <Tag className={cn('scroll-m-20 text-5xl font-extrabold xl:text-6xl', className)} {...props} />
+  <Tag
+    className={cn('scroll-m-20 text-4xl font-extrabold lg:text-5xl xl:text-6xl', className)}
+    {...props}
+  />
 )
 
 const Large = ({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
@@ -23,7 +26,7 @@ const Large = ({ className, ...props }: React.HTMLAttributes<HTMLParagraphElemen
 )
 
 const Small = ({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
-  <small className={cn('font-medium max-xl:text-xs', className)} {...props} />
+  <small className={cn('font-medium', className)} {...props} />
 )
 
 const Ul = ({ className, ...props }: React.HTMLAttributes<HTMLUListElement>) => (

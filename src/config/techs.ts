@@ -43,4 +43,4 @@ const techsConfig: TechsConfig[] = [
   }
 ]
 
-export { techsConfig, type TechsConfig }
+export { techsConfig }

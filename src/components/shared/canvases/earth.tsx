@@ -1,7 +1,7 @@
 import { OrbitControls, Preload, useGLTF } from '@react-three/drei'
 import { Canvas as FiberCanvas } from '@react-three/fiber'
-import { useInView } from 'framer-motion'
-import { Suspense, useRef } from 'react'
+import { Suspense } from 'react'
+import { useInView } from 'react-intersection-observer'
 
 const Earth = ({ inView }: { inView: boolean }) => {
   const earth = useGLTF('/planet/scene.gltf')
@@ -9,9 +9,8 @@ const Earth = ({ inView }: { inView: boolean }) => {
   return inView && <primitive object={earth.scene} scale={3} position-y={0} rotation-y={0} />
 }
 
-export const CanvasEarth = () => {
-  const ref = useRef(null)
-  const inView = useInView(ref)
+const CanvasEarth = () => {
+  const [ref, inView] = useInView({ rootMargin: '200px' })
   return (
     <FiberCanvas
       shadows

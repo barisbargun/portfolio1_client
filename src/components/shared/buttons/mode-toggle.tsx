@@ -1,6 +1,6 @@
 import { Moon, Sun } from 'lucide-react'
 
-import { Button, ButtonProps } from '@/components/ui/button'
+import { Button, type ButtonProps } from '@/components/ui/button'
 
 import { useTheme } from '../../global/theme-provider'
 

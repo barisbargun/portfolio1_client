@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils'
 
-import { Svg, SvgProps } from '../base'
+import { Svg, type SvgProps } from '../base'
 
 export const IconMongodb = ({ className, ...props }: SvgProps) => {
   return (

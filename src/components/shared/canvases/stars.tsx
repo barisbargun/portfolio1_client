@@ -1,8 +1,8 @@
 import { PointMaterial, Points, Preload } from '@react-three/drei'
-import { Canvas, CanvasProps, useFrame } from '@react-three/fiber'
-import { useInView } from 'framer-motion'
+import { Canvas, type CanvasProps, useFrame } from '@react-three/fiber'
 import { random } from 'maath'
 import { Suspense, useRef, useState } from 'react'
+import { useInView } from 'react-intersection-observer'
 
 import { useTheme } from '@/components/global/theme-provider'
 
@@ -33,8 +33,7 @@ const Stars = () => {
 }
 
 const CanvasStars = ({ ...props }: Omit<CanvasProps, 'children'>) => {
-  const ref = useRef(null)
-  const inView = useInView(ref)
+  const [ref, inView] = useInView({ rootMargin: '200px' })
   return (
     <Canvas
       camera={{ position: [0, 0, 1] }}

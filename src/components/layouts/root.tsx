@@ -10,7 +10,7 @@ export const RootLayout = ({ children }: Props) => {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <Navbar />
-      <main className="flex min-h-screen w-full flex-col">{children}</main>
+      <main className="flex min-h-screen w-full flex-col pb-16 sm:pb-36 lg:pb-10">{children}</main>
       <Toaster />
     </ThemeProvider>
   )

@@ -14,4 +14,4 @@ const menuLinkConfig = {
   contact: { name: 'Contact', link: 'contact', showNav: true }
 } satisfies Record<string, MenuLinkConfig>
 
-export { menuLinkConfig, type MenuLinkConfig, type MenuLinks }
+export { menuLinkConfig, type MenuLinkConfig }

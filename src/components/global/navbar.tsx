@@ -1,91 +1,93 @@
-import { motion } from 'framer-motion'
+import { Menu, X } from 'lucide-react'
 import { useState } from 'react'
 
-import { MenuLinkConfig, menuLinkConfig } from '@/config/nav'
+import { type MenuLinkConfig, menuLinkConfig } from '@/config/nav'
 import { siteConfig } from '@/config/site'
+import { useIsMobile } from '@/hooks/is-mobile'
 import { useScrollLock } from '@/hooks/scroll-lock'
 import { cn } from '@/lib/utils'
 
-import { ButtonMobileNavMenu } from '../shared/buttons/mobile-nav-menu'
 import { ButtonModeToggle } from '../shared/buttons/mode-toggle'
 
 export const Navbar = () => {
+  const isMobile = useIsMobile()
   const [openMobileNav, setOpenMobileNav] = useState(false)
   useScrollLock(openMobileNav)
 
-  return (
-    <>
-      <header className="fixed left-0 top-0 z-50 flex w-full justify-center border-b bg-background/40 font-sourceCodePro backdrop-blur-sm">
-        <div className="container flex items-center justify-between py-2 lg:py-3">
-          {/** For Mobile */}
-          <ButtonMobileNavMenu
-            className="z-50 lg:hidden"
-            open={openMobileNav}
-            setOpen={setOpenMobileNav}
-          />
+  const Header = ({ children }: { children: React.ReactNode }) => (
+    <header className="fixed left-0 top-0 z-50 flex w-full justify-center border-b bg-background/95 font-sourceCodePro">
+      <div className="container flex items-center justify-between py-2 lg:py-3">{children}</div>
+    </header>
+  )
 
-          <div className="animate-shine !bg-clip-text font-bold uppercase tracking-[0.2rem] text-transparent drop-shadow-whiteGlow [background:radial-gradient(circle_at_center,theme(colors.slate.100_/_85%),transparent)_-200%_50%_/_200%_100%_no-repeat,theme(colors.slate.800)] after:absolute after:left-0 after:top-0 after:size-full after:[content:''] dark:[background:radial-gradient(circle_at_center,theme(colors.slate.900_/_85%),transparent)_-200%_50%_/_200%_100%_no-repeat,theme(colors.slate.100)] md:tracking-[0.5rem]">
-            <strong>{siteConfig.author}</strong>
-          </div>
-          {/** For Desktop */}
-          <nav className="max-lg:hidden">
-            <ul className="flex items-center justify-between gap-10">
-              {Object.values(menuLinkConfig).map(
-                (v: MenuLinkConfig) =>
-                  v.showNav && (
-                    <li key={v.name}>
-                      <a
-                        className="text-sm font-semibold uppercase opacity-60 transition-opacity hover:opacity-100"
-                        href={`#${v.link}`}
-                      >
-                        {v.name}
-                      </a>
-                    </li>
-                  )
-              )}
-              <li>
-                <ButtonModeToggle />
-              </li>
-            </ul>
-          </nav>
+  const Author = () => (
+    <strong className="font-bold uppercase tracking-[0.3rem] sm:tracking-[0.5rem]">
+      {siteConfig.author}
+    </strong>
+  )
 
-          <ButtonModeToggle className="lg:hidden" />
-        </div>
-      </header>
+  return isMobile ? (
+    <Header>
+      <button
+        className="z-50 rounded-full lg:hidden"
+        aria-label="Toggle mobile navigation menu"
+        onClick={() => setOpenMobileNav((v) => !v)}
+      >
+        {openMobileNav ? <X className="size-6" /> : <Menu className="size-6" />}
+      </button>
 
-      {/** Mobile Nav */}
-      <motion.ul
-        variants={{
-          initial: {
-            display: 'none',
-            opacity: 0
-          },
-          animate: {
-            display: 'flex',
-            opacity: 1
-          }
-        }}
-        transition={{
-          duration: 0.2
-        }}
-        initial="initial"
-        animate={openMobileNav ? 'animate' : 'initial'}
+      <Author />
+
+      <ButtonModeToggle />
+
+      <nav
         className={cn(
-          'fixed bottom-0 right-0 top-0 z-40 w-full flex-col gap-6 bg-background/90 backdrop-blur-sm flex-center lg:hidden'
+          'fixed bottom-0 right-0 top-0 z-40 w-full bg-background/95 transition-all duration-300 ease-in-out lg:hidden',
+          !openMobileNav && 'invisible opacity-0'
         )}
       >
-        {Object.values(menuLinkConfig).map((v) => (
-          <li key={v.name}>
-            <a
-              href={'#' + v.link}
-              className="font-source text-2xl transition-opacity"
-              onClick={() => setOpenMobileNav(false)}
-            >
-              {v.name}
-            </a>
+        <ul className="size-full flex-col gap-6 flex-center">
+          {Object.values(menuLinkConfig).map((v) => (
+            <li key={v.name}>
+              <a
+                href={'#' + v.link}
+                className="font-source text-2xl transition-opacity"
+                onClick={() => setOpenMobileNav(false)}
+              >
+                {v.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </Header>
+  ) : (
+    <Header>
+      <div className="animate-shine !bg-clip-text text-transparent drop-shadow-whiteGlow [background:radial-gradient(circle_at_center,theme(colors.slate.100_/_85%),transparent)_-200%_50%_/_200%_100%_no-repeat,theme(colors.slate.800)] after:absolute after:left-0 after:top-0 after:size-full after:[content:''] dark:[background:radial-gradient(circle_at_center,theme(colors.slate.900_/_85%),transparent)_-200%_50%_/_200%_100%_no-repeat,theme(colors.slate.100)]">
+        <Author />
+      </div>
+
+      {/** Desktop Nav */}
+      <nav className="max-lg:hidden">
+        <ul className="flex items-center justify-between gap-10">
+          {Object.values(menuLinkConfig).map(
+            (v: MenuLinkConfig) =>
+              v.showNav && (
+                <li key={v.name}>
+                  <a
+                    className="text-sm font-semibold uppercase opacity-60 transition-opacity hover:opacity-100"
+                    href={`#${v.link}`}
+                  >
+                    {v.name}
+                  </a>
+                </li>
+              )
+          )}
+          <li>
+            <ButtonModeToggle />
           </li>
-        ))}
-      </motion.ul>
-    </>
+        </ul>
+      </nav>
+    </Header>
   )
 }

@@ -11,4 +11,4 @@ const creditsConfig: CreditsConfig[] = [
   }
 ]
 
-export { creditsConfig, type CreditsConfig }
+export { creditsConfig }

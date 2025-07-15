@@ -16,10 +16,21 @@ type ProjectsConfig = {
   }[]
 }
 
-const projectsConfig: ProjectsConfig = {
+export const projectsConfig: ProjectsConfig = {
   description:
     'Behold a showcase of my prowess in web development, a testament to my rich experience manifested in real-world examples. Each project is meticulously crafted, reflecting a harmonious blend of skill and creativity. Explore the intricacies of my work through the accompanying Code Repository links and immersive live demos, where every line of code breathes life into a digital masterpiece.',
   projects: [
+    {
+      title: 'Car Rent App',
+      description:
+        'Client-side powered by ReactJS, backend by ExpressJS in Turborepo. The car rental app includes a content management system for seamless customization.',
+      tags: ['monorepo', 'react', 'express'],
+      image: {
+        src: screenshots.car_rent,
+        alt: 'car rent app'
+      },
+      url: 'https://barisolgun-car-rent-client.netlify.app/'
+    },
     {
       title: 'Social Media App',
       description:
@@ -42,17 +53,7 @@ const projectsConfig: ProjectsConfig = {
       },
       url: 'https://barisolgun-promptopia.vercel.app/'
     },
-    {
-      title: 'Car Rent App',
-      description:
-        'Client-side powered by ReactJS, backend by ExpressJS. The car rental app includes a content management system for seamless customization.',
-      tags: ['react', 'express', 'mongodb'],
-      image: {
-        src: screenshots.car_rent,
-        alt: 'car rent app'
-      },
-      url: 'https://barisolgun-car-rent.netlify.app/'
-    },
+
     {
       title: 'Personal Portfolio',
       description:
@@ -68,7 +69,7 @@ const projectsConfig: ProjectsConfig = {
       title: 'Landing Page',
       description:
         'A business website that stands out with our customizable options. Built with React and Tailwindcss, our platform ensures seamless navigation and functionality across home, pricing, about, terms and contact pages.',
-      tags: ['next', 'tailwindcss', 'framer-motion'],
+      tags: ['next', 'tailwindcss', 'motion/react'],
       image: {
         src: screenshots.bussli,
         alt: 'landing page'
@@ -77,5 +78,3 @@ const projectsConfig: ProjectsConfig = {
     }
   ]
 }
-
-export { projectsConfig, type ProjectsConfig }

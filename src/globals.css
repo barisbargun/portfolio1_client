@@ -11,7 +11,8 @@
   }
 
   html {
-    @apply scroll-smooth text-[16px] antialiased;
+    @apply scroll-smooth antialiased;
+    @apply text-xs leading-normal sm:text-base lg:text-[0.875rem] xl:text-[15px] 2xl:text-base;
   }
 
   #root {
@@ -24,10 +25,6 @@
 
   .container {
     @apply max-sm:!px-4;
-  }
-
-  p {
-    @apply leading-7;
   }
 
   small {

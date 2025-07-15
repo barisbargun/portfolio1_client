@@ -5,7 +5,6 @@ import React, { createContext, useEffect, useRef, useState } from 'react'
 
 import { cn } from '@/lib/utils'
 import { useMouseEnter } from '@/hooks/mouse-enter'
-import { useIsMobile } from '@/hooks/is-mobile'
 
 const MouseEnterContext = createContext<
   [boolean, React.Dispatch<React.SetStateAction<boolean>>] | undefined
@@ -19,7 +18,6 @@ type CardContainerProps = React.HTMLAttributes<HTMLDivElement> & {
 
 const CardContainer = React.forwardRef<HTMLDivElement, CardContainerProps>(
   ({ perspective = '600px', children, className, containerClassName, style, ...props }, ref) => {
-    const isMobile = useIsMobile()
     const containerRef = useRef<HTMLDivElement>(null)
     const [isMouseEntered, setIsMouseEntered] = useState(false)
 
@@ -42,20 +40,11 @@ const CardContainer = React.forwardRef<HTMLDivElement, CardContainerProps>(
       containerRef.current.style.transform = `rotateY(0deg) rotateX(0deg)`
     }
 
-    const mouseEvents = {
-      onMouseEnter: handleMouseEnter,
-      onMouseLeave: handleMouseLeave,
-      onMouseMove: handleMouseMove
-    }
-
     return (
       <MouseEnterContext.Provider value={[isMouseEntered, setIsMouseEntered]}>
         <div
           className={cn('flex h-full items-center justify-center', containerClassName)}
-          style={{
-            perspective: isMobile ? 'none' : perspective,
-            ...style
-          }}
+          style={{ perspective, ...style }}
           ref={ref}
           {...props}
         >
@@ -68,7 +57,9 @@ const CardContainer = React.forwardRef<HTMLDivElement, CardContainerProps>(
             style={{
               transformStyle: 'preserve-3d'
             }}
-            {...(!isMobile ? { ...mouseEvents } : {})}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            onMouseMove={handleMouseMove}
           >
             {children}
           </div>
@@ -120,11 +111,10 @@ const CardItem = ({
 }: CardItem) => {
   const ref = useRef<HTMLDivElement>(null)
   const [isMouseEntered] = useMouseEnter(MouseEnterContext)
-  const isMobile = useIsMobile()
 
   useEffect(() => {
     const handleAnimations = () => {
-      if (!ref.current || isMobile) return
+      if (!ref.current) return
       ref.current.style.transform = isMouseEntered
         ? `translateX(${translateX}px) translateY(${translateY}px) translateZ(${translateZ}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg)`
         : `translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg)`

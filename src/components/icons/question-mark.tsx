@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils'
 
-import { Svg, SvgProps } from './base'
+import { Svg, type SvgProps } from './base'
 
 export const IconQuestionMark = ({ className, ...props }: SvgProps) => {
   return (

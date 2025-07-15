@@ -1,7 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useInView } from 'framer-motion'
 import React, { lazy, Suspense, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { useInView } from 'react-intersection-observer'
 import { toast } from 'sonner'
 import { z } from 'zod'
 
@@ -27,8 +27,7 @@ type Props = React.HTMLProps<HTMLFormElement>
 const ReCAPTCHA = lazy(() => import('react-google-recaptcha'))
 
 export const ContactForm = ({ className, ...props }: Props) => {
-  const ref = useRef(null)
-  const inView = useInView(ref, { once: true })
+  const [ref, inView] = useInView({ triggerOnce: true, rootMargin: '400px' })
 
   const recaptchaRef = useRef<any>(null)
   const [sending, setSending] = useState(false)
