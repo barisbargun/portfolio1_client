@@ -18,7 +18,7 @@ type ProjectsConfig = {
 
 export const projectsConfig: ProjectsConfig = {
   description:
-    'Behold a showcase of my prowess in web development, a testament to my rich experience manifested in real-world examples. Each project is meticulously crafted, reflecting a harmonious blend of skill and creativity. Explore the intricacies of my work through the accompanying Code Repository links and immersive live demos, where every line of code breathes life into a digital masterpiece.',
+    'My projects are mostly made with React, Next.js, Express.js, and Tailwind CSS. I enjoy building web applications that are both functional and visually appealing.',
   projects: [
     {
       title: 'Car Rent App',
@@ -42,18 +42,6 @@ export const projectsConfig: ProjectsConfig = {
       },
       url: 'https://barisolgun-snapgram.netlify.app/'
     },
-    {
-      title: 'Prompt Share App',
-      description:
-        'Powered by Next.js, Promptopia enables users to effortlessly share, edit, and delete their prompts. Authenticated via Google API for a secure experience.',
-      tags: ['react', 'next', 'mongodb'],
-      image: {
-        src: screenshots.promptopia,
-        alt: 'promptopia app'
-      },
-      url: 'https://barisolgun-promptopia.vercel.app/'
-    },
-
     {
       title: 'Personal Portfolio',
       description:

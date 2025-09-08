@@ -13,15 +13,11 @@ type AboutConfig = {
 
 const aboutConfig: AboutConfig = {
   description:
-    'With a keen understanding of the full stack, I am capable of developing end-to-end web applications that deliver a seamless user experience. My commitment to staying updated with the latest industry trends ensures that I can leverage cutting-edge technologies to create modern and efficient web solutions.',
+    "Hello, I graduated in Computer Programming from Marmara University. I did my internship at Lits Consulting in Istanbul. I've loved programming since childhood. I work on projects and share them on Github.",
   roles: [
     {
       image: icons.web,
       text: 'Full Stack Web Developer'
-    },
-    {
-      image: icons.creator,
-      text: 'Javascript Developer'
     },
     {
       image: icons.mobile,
@@ -30,10 +26,13 @@ const aboutConfig: AboutConfig = {
     {
       image: icons.backend,
       text: 'Express.js Developer'
+    },
+    {
+      image: icons.creator,
+      text: 'SAP/ABAP Developer'
     }
   ],
-  quote:
-    'Behind every seamless user experience is a developer crafting code with precision and creativity.'
+  quote: 'I care about performance, security and writing clean, readable code.'
 }
 
 export { aboutConfig, type AboutConfig }

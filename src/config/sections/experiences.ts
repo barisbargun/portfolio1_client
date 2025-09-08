@@ -1,7 +1,5 @@
 import { BriefcaseBusiness } from 'lucide-react'
 
-import { IconQuestionMark } from '@/components/icons/question-mark'
-
 type ExperiencesConfig = {
   role: string
   company: string
@@ -12,26 +10,15 @@ type ExperiencesConfig = {
 
 const experiencesConfig: ExperiencesConfig[] = [
   {
-    role: 'Software intern',
-    company: 'Regex telecommunication',
+    role: 'Software Programming Intern',
+    company: 'Lits Consulting',
     descriptions: [
-      'In the 11th grade, my internship at Regex Telecommunications began.',
-      'Initially, I worked on web-based projects using HTML, CSS, JS, and Angular.',
-      'Later on, I expanded my skills to include C# and SQL.',
-      'Through continuous self-improvement, I crafted aesthetically pleasing designs and developed functional programs.'
+      'I gained experience in OOP, ALV, SQL queries, Adobe Forms and debugging.',
+      'During the internship, I kept my focus on writing clean code and successfully finished two projects.',
+      'I used classes and data tables in my projects. I wrote comprehensive SQL queries by establishing relationships between multiple tables.'
     ],
-    date: 'September 2020 - July 2021',
+    date: 'August 2025',
     icon: BriefcaseBusiness
-  },
-  {
-    role: 'Next?',
-    company: 'Care to collaborate?',
-    descriptions: [
-      'I possess expertise in developing web applications using React.js and Next.js, with a focus on creating visually appealing websites.',
-      'I excel in crafting MERN applications, utilizing Node.js and Express.js for robust backend development.',
-      'Overall, I am well-versed in both front-end and back-end technologies, ensuring comprehensive and effective web development.'
-    ],
-    icon: IconQuestionMark
   }
 ]
 
