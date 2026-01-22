@@ -1,4 +1,5 @@
 import { lazy, Suspense } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useInView } from 'react-intersection-observer'
 
 import {
@@ -9,8 +10,8 @@ import {
 } from './components/global/page-header'
 import { PageSection } from './components/global/page-section'
 import { CardBasic3D } from './components/shared/cards/basic-3d'
-import { Card3D } from './components/shared/cards/card-3d'
 import { ExperienceCard } from './components/shared/cards/experience'
+import { ProjectCard } from './components/shared/cards/project-card'
 import { Button } from './components/ui/button'
 import { Spotlight } from './components/ui/spotlight'
 import { H1, Small, Ul } from './components/ui/typography'
@@ -29,6 +30,8 @@ const CanvasEarth = lazy(() => import('./components/shared/canvases/earth'))
 const CanvasStars = lazy(() => import('./components/shared/canvases/stars'))
 
 export const App = () => {
+  const { t } = useTranslation()
+
   const [contactRef, contactView] = useInView({ triggerOnce: true, rootMargin: '400px' })
   const isMobile = useIsMobile()
   return (
@@ -45,20 +48,20 @@ export const App = () => {
 
         <div className="relative flex flex-col items-center">
           <H1 className="max-w-xs text-balance bg-gradient-to-b from-neutral-600 to-neutral-900 bg-clip-text capitalize text-transparent dark:from-neutral-50 dark:to-neutral-400 dark:drop-shadow-whiteGlow sm:max-w-xl xl:max-w-2xl">
-            {siteConfig.role}
+            {t(siteConfig.role)}
           </H1>
           <div className="mt-6 lg:mt-8 [&_button]:rounded-lg">
             <a href={'#' + menuLinkConfig.projects.link}>
-              <Button size={isMobile ? 'default' : 'lg'}>Projects</Button>
+              <Button size={isMobile ? 'default' : 'lg'}>{t('buttons.projects')}</Button>
             </a>
             <a className="ml-4 lg:ml-6" href={'#' + menuLinkConfig.contact.link}>
               <Button variant="outline" size={isMobile ? 'default' : 'lg'}>
-                Contact me
+                {t('buttons.contact_me')}
               </Button>
             </a>
           </div>
 
-          <div className="mx-auto flex w-fit max-w-xs flex-wrap justify-center gap-6 content-space sm:max-w-xl xl:gap-8 [&_svg]:size-7 [&_svg]:text-neutral-500 sm:[&_svg]:size-10">
+          <div className="mx-auto flex w-fit max-w-sm flex-wrap justify-center gap-6 content-space sm:max-w-2xl xl:gap-8 [&_svg]:size-7 [&_svg]:text-neutral-500 sm:[&_svg]:size-10">
             {techsConfig.map((tech, index) => (
               <div key={index} className="flex items-center space-x-1 sm:space-x-2">
                 {tech.icon && <tech.icon />}
@@ -116,7 +119,7 @@ export const App = () => {
         <ul className="grid grid-cols-1 gap-5 content-space lg:grid-cols-2 xl:grid-cols-3">
           {projectsConfig.projects.map((project) => (
             <li key={project.title}>
-              <Card3D {...project} />
+              <ProjectCard {...project} />
             </li>
           ))}
         </ul>

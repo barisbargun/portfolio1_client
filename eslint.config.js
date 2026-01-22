@@ -5,7 +5,6 @@ import jsxA11y from 'eslint-plugin-jsx-a11y'
 import react from 'eslint-plugin-react'
 import reactHooks from 'eslint-plugin-react-hooks'
 import simpleImportSort from 'eslint-plugin-simple-import-sort'
-import unicorn from 'eslint-plugin-unicorn'
 import globals from 'globals'
 import tseslint from 'typescript-eslint'
 
@@ -18,18 +17,21 @@ export default tseslint.config(
       ecmaVersion: 2020,
       globals: globals.browser
     },
+    settings: {
+      react: {
+        version: 'detect'
+      }
+    },
     plugins: {
       'react-hooks': reactHooks,
       'simple-import-sort': simpleImportSort,
       'jsx-a11y': jsxA11y,
-      unicorn: unicorn,
       import: importPlugin,
       react: react
     },
     rules: {
       ...react.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules,
-      ...unicorn.configs.recommended.rules,
       'linebreak-style': ['error', 'unix'],
 
       'react/prop-types': 'off',
@@ -86,9 +88,6 @@ export default tseslint.config(
         }
       ],
 
-      'unicorn/prevent-abbreviations': 'off',
-      'unicorn/no-empty-file': 'off',
-
       '@typescript-eslint/no-explicit-any': ['off'],
       '@typescript-eslint/no-unused-vars': [
         'warn',
@@ -98,12 +97,6 @@ export default tseslint.config(
           caughtErrorsIgnorePattern: '^_'
         }
       ]
-    }
-  },
-  {
-    files: ['src/components/ui/**/*.tsx'],
-    rules: {
-      'unicorn/no-abusive-eslint-disable': 'off'
     }
   },
   {

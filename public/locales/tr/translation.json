@@ -1,0 +1,77 @@
+{
+  "role": "Web ve Mobil Geliştirici",
+  "buttons": {
+    "projects": "Projeler",
+    "contact_me": "İletişim"
+  },
+  "menu": {
+    "about": "HAKKIMDA",
+    "contact": "İLETİŞİM",
+    "experience": "DENEYİM",
+    "homepage": "ANASAYFA",
+    "projects": "PROJELER"
+  },
+  "about": {
+    "nav_header": "Giriş",
+    "header": "Hakkımda",
+    "description": "Merhaba, Marmara Üniversitesi Bilgisayar Programcılığı bölümünden mezun oldum. Stajımı Lits Consulting Şirketinde yaptım. Çocukluğumdan beri programlamayla uğraştım ve sevdim. Projelerim üzerinde çalışır ve Github'a yüklerim.",
+    "roles": {
+      "web": "Frontend Web Geliştirici",
+      "backend": "Backend Geliştirici",
+      "mobile": "Mobil Geliştirici",
+      "abap": "SAP/ABAP Geliştirici"
+    },
+    "quote": "Performansa, güvenliğe ve temiz, okunabilir kod yazmaya özen gösteririm."
+  },
+  "experiences": {
+    "nav_header": "Şu zamana kadar yaptıklarım",
+    "header": "İş deneyimleri",
+    "role": "Yazılım programlama stajyeri",
+    "descriptions": {
+      "1": "OOP, ALV, SQL komutları, Adobe Forms ve hata ayıklama da deneyim kazandım.",
+      "2": "Stajım sırasında, temiz kod yazmaya özen gösterdim ve başarıyla iki proje bitirdim.",
+      "3": "Projelerimde sınıfları ve veri tablolarını kullandım. Birden fazla tablo arasında ilişki kurarak kapsamlı SQL sorguları yazdım."
+    },
+    "date": "Ağustos 2025"
+  },
+  "projects": {
+    "nav_header": "Sanatsal faaliyetler koleksiyonum",
+    "header": "Projelerim",
+    "description": "Projelerimin büyük bir kısmı React, Next.js, Express, TailwindCSS ile yaptım. Fonksiyonel ve göze hitap eden web siteleri yapmayı severim.",
+    "projects": {
+      "carRent": {
+        "title": "Araba Kiralama Uygulaması",
+        "description": "Müşteri tarafı React ile, Admin tarafı ise Express.js ile Turborepo kullanarak yaptım. İçerik yönetici paneliyle değişiklikler yapılabilir."
+      },
+      "socialMedia": {
+        "title": "Sosyal Medya Uygulaması",
+        "description": "Bu sosyal medya uygulamasıyla, gönderiler paylaşabilir, iletişim kurabilir ve kendi dijital kimliğinizi yaratabilirsiniz."
+      },
+      "portfolio": {
+        "title": "Kişisel Portfolyo",
+        "description": "Next.js ve TailwindCSS ile yapıldı. Bu Kişisel web sitesi Sizi, hizmetlerinizi ve projelerinizi tanıtır."
+      },
+      "landingPage": {
+        "title": "Landing Page",
+        "description": "Kolaylıkla kişiselleştirilebilir kurumsal bir web sitesidir. React ve TailwindCSS ile yapıldı. Ücret, Hakkımda, şartlar ve iletişim sayfaları yer alır."
+      }
+    }
+  },
+  "contact": {
+    "nav_header": "İletişime geç",
+    "header": "İletişim",
+    "fields": {
+      "name": "İsim",
+      "email": "Email",
+      "message": "Mesaj",
+      "name_placeholder": "Adınızı girin.",
+      "email_placeholder": "Mail adresinizi girin.",
+      "message_placeholder": "Mesajınızı girin.",
+      "submit": "Gönder."
+    }
+  },
+  "credits": {
+    "nav_header": "Modelleri Keşfet",
+    "header": "Krediler"
+  }
+}

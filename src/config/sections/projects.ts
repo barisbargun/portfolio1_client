@@ -17,13 +17,11 @@ type ProjectsConfig = {
 }
 
 export const projectsConfig: ProjectsConfig = {
-  description:
-    'My projects are mostly made with React, Next.js, Express.js, and Tailwind CSS. I enjoy building web applications that are both functional and visually appealing.',
+  description: 'projects.description',
   projects: [
     {
-      title: 'Car Rent App',
-      description:
-        'Client-side powered by ReactJS, backend by ExpressJS in Turborepo. The car rental app includes a content management system for seamless customization.',
+      title: 'projects.projects.carRentApp.title',
+      description: 'projects.projects.carRentApp.description',
       tags: ['monorepo', 'react', 'express'],
       image: {
         src: screenshots.car_rent,
@@ -32,9 +30,8 @@ export const projectsConfig: ProjectsConfig = {
       url: 'https://barisolgun-car-rent-client.netlify.app/'
     },
     {
-      title: 'Social Media App',
-      description:
-        'A well-founded platform, this social media app empowers users to share posts, express appreciation through likes, and craft their own digital realms.',
+      title: 'projects.projects.socialMedia.title',
+      description: 'projects.projects.socialMedia.title',
       tags: ['react', 'appwrite', 'tailwindcss'],
       image: {
         src: screenshots.snapgram,
@@ -43,9 +40,8 @@ export const projectsConfig: ProjectsConfig = {
       url: 'https://barisolgun-snapgram.netlify.app/'
     },
     {
-      title: 'Personal Portfolio',
-      description:
-        'Utilizing the robust combination of Next.js and Tailwind CSS, this personal portfolio showcases an array of meticulously crafted services and projects.',
+      title: 'projects.projects.portfolio.title',
+      description: 'projects.projects.portfolio.title',
       tags: ['react', 'next', 'tailwindcss'],
       image: {
         src: screenshots.portfolio,
@@ -54,9 +50,8 @@ export const projectsConfig: ProjectsConfig = {
       url: 'https://barisolgun-portfolio2.vercel.app/'
     },
     {
-      title: 'Landing Page',
-      description:
-        'A business website that stands out with our customizable options. Built with React and Tailwindcss, our platform ensures seamless navigation and functionality across home, pricing, about, terms and contact pages.',
+      title: 'projects.projects.landingPage.title',
+      description: 'projects.projects.landingPage.title',
       tags: ['next', 'tailwindcss', 'motion/react'],
       image: {
         src: screenshots.bussli,

@@ -12,27 +12,26 @@ type AboutConfig = {
 }
 
 const aboutConfig: AboutConfig = {
-  description:
-    "Hello, I graduated in Computer Programming from Marmara University. I did my internship at Lits Consulting in Istanbul. I've loved programming since childhood. I work on projects and share them on Github.",
+  description: 'about.description',
   roles: [
     {
       image: icons.web,
-      text: 'Full Stack Web Developer'
-    },
-    {
-      image: icons.mobile,
-      text: 'React.js Developer'
+      text: 'about.roles.web'
     },
     {
       image: icons.backend,
-      text: 'Express.js Developer'
+      text: 'about.roles.backend'
+    },
+    {
+      image: icons.mobile,
+      text: 'about.roles.mobile'
     },
     {
       image: icons.creator,
-      text: 'SAP/ABAP Developer'
+      text: 'about.roles.abap'
     }
   ],
-  quote: 'I care about performance, security and writing clean, readable code.'
+  quote: 'about.quote'
 }
 
 export { aboutConfig, type AboutConfig }

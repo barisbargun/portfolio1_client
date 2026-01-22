@@ -1,7 +1,6 @@
 import { ExternalLink } from 'lucide-react'
 
 import { Card, CardContent } from '@/components/ui/card'
-import { CardBody, CardContainer, CardItem } from '@/components/ui/card-3d'
 import { Large } from '@/components/ui/typography'
 import { useIsMobile } from '@/hooks/is-mobile'
 import { cn } from '@/lib/utils'
@@ -16,7 +15,15 @@ type Props = React.HTMLAttributes<HTMLDivElement> & {
 
 const colors = ['#2563eb', '#ca8a04', '#16a34a', '#dc2626']
 
-export const Card3D = ({ description, image, tags, title, url, className, ...props }: Props) => {
+export const ProjectCard = ({
+  description,
+  image,
+  tags,
+  title,
+  url,
+  className,
+  ...props
+}: Props) => {
   const isMobile = useIsMobile()
 
   const Image = () => (
@@ -49,21 +56,23 @@ export const Card3D = ({ description, image, tags, title, url, className, ...pro
       </CardContent>
     </Card>
   ) : (
-    <CardContainer className={cn('h-full rounded-lg bg-card p-4 shadowCard', className)} {...props}>
-      <CardBody className="flex h-full flex-col">
-        <CardItem translateZ="60">
-          <Image />
-        </CardItem>
-        <CardItem translateZ={20}>
+    <Card
+      className={cn(
+        'h-full transition-transform duration-300 shadowCard hover:scale-110',
+        className
+      )}
+      {...props}
+    >
+      <CardContent className="flex h-full flex-col p-0">
+        <Image />
+        <div className="flex h-full flex-col p-2 px-4">
           <Title />
-        </CardItem>
-        <CardItem className="mb-4 mt-1" as="p" translateZ={20}>
-          {description}
-        </CardItem>
-        <CardItem className="mt-auto flex items-center gap-3" translateZ={20}>
-          <Tags />
-        </CardItem>
-      </CardBody>
-    </CardContainer>
+          <p className="mb-4 mt-1">{description}</p>
+          <div className="mt-auto flex items-center gap-3">
+            <Tags />
+          </div>
+        </div>
+      </CardContent>
+    </Card>
   )
 }

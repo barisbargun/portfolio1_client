@@ -1,5 +1,6 @@
 import { Menu, X } from 'lucide-react'
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
 import { type MenuLinkConfig, menuLinkConfig } from '@/config/nav'
 import { siteConfig } from '@/config/site'
@@ -7,9 +8,12 @@ import { useIsMobile } from '@/hooks/is-mobile'
 import { useScrollLock } from '@/hooks/scroll-lock'
 import { cn } from '@/lib/utils'
 
+import { ButtonLangToggle } from '../shared/buttons/lang-toggle'
 import { ButtonModeToggle } from '../shared/buttons/mode-toggle'
+import { MobileSettingsMenu } from '../shared/mobile-settings-menu'
 
 export const Navbar = () => {
+  const { t } = useTranslation()
   const isMobile = useIsMobile()
   const [openMobileNav, setOpenMobileNav] = useState(false)
   useScrollLock(openMobileNav)
@@ -37,8 +41,7 @@ export const Navbar = () => {
       </button>
 
       <Author />
-
-      <ButtonModeToggle />
+      <MobileSettingsMenu />
 
       <nav
         className={cn(
@@ -54,7 +57,7 @@ export const Navbar = () => {
                 className="font-source text-2xl transition-opacity"
                 onClick={() => setOpenMobileNav(false)}
               >
-                {v.name}
+                {t(v.name)}
               </a>
             </li>
           ))}
@@ -78,12 +81,13 @@ export const Navbar = () => {
                     className="text-sm font-semibold uppercase opacity-60 transition-opacity hover:opacity-100"
                     href={`#${v.link}`}
                   >
-                    {v.name}
+                    {t(v.name)}
                   </a>
                 </li>
               )
           )}
-          <li>
+          <li className="flex gap-2">
+            <ButtonLangToggle />
             <ButtonModeToggle />
           </li>
         </ul>

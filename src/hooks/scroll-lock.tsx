@@ -1,4 +1,3 @@
-/* eslint-disable unicorn/prefer-ternary */
 import { useEffect } from 'react'
 
 export function useScrollLock(lock: boolean): void {

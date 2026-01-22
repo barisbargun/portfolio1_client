@@ -1,0 +1,77 @@
+{
+  "role": "Web and Mobile Developer",
+  "buttons": {
+    "projects": "Projects",
+    "contact_me": "Contact me"
+  },
+  "menu": {
+    "homepage": "Homepage",
+    "about": "About",
+    "experience": "Experience",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "about": {
+    "nav_header": "Introduction",
+    "header": "About me",
+    "description": "Hello, I graduated in Computer Programming from Marmara University. I did my internship at Lits Consulting in Istanbul. I've loved programming since childhood. I work on projects and share them on Github.",
+    "roles": {
+      "web": "Frontend Web Developer",
+      "backend": "Backend Developer",
+      "mobile": "Mobile Developer",
+      "abap": "SAP/ABAP Developer"
+    },
+    "quote": "I care about performance, security and writing clean, readable code."
+  },
+  "experiences": {
+    "nav_header": "The progress I've made up to this point",
+    "header": "Work Experience",
+    "role": "Software Programming Intern",
+    "descriptions": {
+      "1": "I gained experience in OOP, ALV, SQL queries, Adobe Forms and debugging.",
+      "2": "During the internship, I kept my focus on writing clean code and successfully finished two projects.",
+      "3": "I used classes and data tables in my projects. I wrote comprehensive SQL queries by establishing relationships between multiple tables."
+    },
+    "date": "August 2025"
+  },
+  "projects": {
+    "nav_header": "Collections of my artistic endeavors",
+    "header": "Projects",
+    "description": "My projects are mostly made with React, Next.js, Express.js, and Tailwind CSS. I enjoy building web applications that are both functional and visually appealing.",
+    "projects": {
+      "carRent": {
+        "title": "Car Rent App",
+        "description": "Client-side powered by ReactJS, backend by ExpressJS in Turborepo. The car rental app includes a content management system for seamless customization."
+      },
+      "socialMedia": {
+        "title": "Social Media App",
+        "description": "A well-founded platform, this social media app empowers users to share posts, express appreciation through likes, and craft their own digital realms."
+      },
+      "portfolio": {
+        "title": "Personal Portfolio",
+        "description": "Utilizing the robust combination of Next.js and Tailwind CSS, this personal portfolio showcases an array of meticulously crafted services and projects."
+      },
+      "landingPage": {
+        "title": "Landing Page",
+        "description": "A business website that stands out with our customizable options. Built with React and Tailwindcss, our platform ensures seamless navigation and functionality across home, pricing, about, terms and contact pages."
+      }
+    }
+  },
+  "contact": {
+    "nav_header": "Get In Touch",
+    "header": "Contact",
+    "fields": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "name_placeholder": "Enter your name.",
+      "email_placeholder": "Enter your email.",
+      "message_placeholder": "Enter your message.",
+      "submit": "Submit"
+    }
+  },
+  "credits": {
+    "nav_header": "Explore models",
+    "header": "Credits"
+  }
+}

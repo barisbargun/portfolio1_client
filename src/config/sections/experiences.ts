@@ -10,14 +10,14 @@ type ExperiencesConfig = {
 
 const experiencesConfig: ExperiencesConfig[] = [
   {
-    role: 'Software Programming Intern',
+    role: 'experiences.role',
     company: 'Lits Consulting',
     descriptions: [
-      'I gained experience in OOP, ALV, SQL queries, Adobe Forms and debugging.',
-      'During the internship, I kept my focus on writing clean code and successfully finished two projects.',
-      'I used classes and data tables in my projects. I wrote comprehensive SQL queries by establishing relationships between multiple tables.'
+      'experiences.descriptions.1',
+      'experiences.descriptions.2',
+      'experiences.descriptions.3'
     ],
-    date: 'August 2025',
+    date: 'experiences.date',
     icon: BriefcaseBusiness
   }
 ]

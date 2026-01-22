@@ -7,11 +7,11 @@ type MenuLinkConfig = {
 }
 
 const menuLinkConfig = {
-  main: { name: 'Homepage', link: 'main' },
-  about: { name: 'About', link: 'about', showNav: true },
-  experience: { name: 'Experience', link: 'experience', showNav: true },
-  projects: { name: 'Projects', link: 'projects' },
-  contact: { name: 'Contact', link: 'contact', showNav: true }
+  main: { name: 'menu.homepage', link: 'main' },
+  about: { name: 'menu.about', link: 'about', showNav: true },
+  experience: { name: 'menu.experience', link: 'experience', showNav: true },
+  projects: { name: 'menu.projects', link: 'projects' },
+  contact: { name: 'menu.contact', link: 'contact', showNav: true }
 } satisfies Record<string, MenuLinkConfig>
 
 export { menuLinkConfig, type MenuLinkConfig }
