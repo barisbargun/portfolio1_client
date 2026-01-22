@@ -13,6 +13,7 @@ import { CardBasic3D } from './components/shared/cards/basic-3d'
 import { ExperienceCard } from './components/shared/cards/experience'
 import { ProjectCard } from './components/shared/cards/project-card'
 import { Button } from './components/ui/button'
+import { Card, CardContent, CardHeader } from './components/ui/card'
 import { Spotlight } from './components/ui/spotlight'
 import { H1, Small, Ul } from './components/ui/typography'
 import { menuLinkConfig } from './config/nav'
@@ -39,7 +40,7 @@ export const App = () => {
       {/** Home */}
       <PageSection
         id={menuLinkConfig.main.link}
-        className="z-10 min-h-[clamp(6.25rem,100vh,75rem)] border-b border-border bg-grid-black/[0.7] dark:border-0 dark:bg-grid-white/[0.5]"
+        className="z-10 min-h-[clamp(6.25rem,100vh,75rem)] border-b border-border bg-grid-black dark:border-0 dark:bg-grid-white/[0.5]"
         nestedClassName="lg:flex-center pt-60 sm:pt-72 text-center h-screen lg:!pt-0"
       >
         <Spotlight className="-left-20 -top-20 lg:-top-32 lg:left-52 xl:left-72" fill="white" />
@@ -75,21 +76,21 @@ export const App = () => {
       {/** About */}
       <PageSection id={menuLinkConfig.about.link}>
         <PageHeader>
-          <PageHeaderNav>Introduction</PageHeaderNav>
-          <PageHeaderHeading>About me</PageHeaderHeading>
-          <PageHeaderDescription>{aboutConfig.description}</PageHeaderDescription>
+          <PageHeaderNav>{t('about.nav_header')}</PageHeaderNav>
+          <PageHeaderHeading>{t('about.header')}</PageHeaderHeading>
+          <PageHeaderDescription>{t('about.description')}</PageHeaderDescription>
         </PageHeader>
 
         <ul className="grid w-fit grid-cols-2 gap-8 content-space [grid-auto-rows:1fr] lg:grid-cols-4">
           {aboutConfig.roles.map((role) => (
             <li key={role.text}>
-              <CardBasic3D {...role} />
+              <CardBasic3D image={role.image} text={t(role.text)} />
             </li>
           ))}
         </ul>
         <Small className="mx-auto max-w-4xl text-pretty text-center font-bold content-space-lg">
           <span className="text-2xl max-lg:hidden">&quot; </span>
-          {aboutConfig.quote}
+          {t('about.quote')}
           <span className="text-2xl leading-none max-lg:hidden"> &quot;</span>
         </Small>
       </PageSection>
@@ -97,8 +98,8 @@ export const App = () => {
       {/** Experience */}
       <PageSection id={menuLinkConfig.experience.link}>
         <PageHeader>
-          <PageHeaderNav>The progress I&apos;ve made up to this point</PageHeaderNav>
-          <PageHeaderHeading>Work Experience</PageHeaderHeading>
+          <PageHeaderNav>{t('experience.nav_header')}</PageHeaderNav>
+          <PageHeaderHeading>{t('experience.header')}</PageHeaderHeading>
         </PageHeader>
         <div className="content-space" />
         <VerticalTimeline>
@@ -111,15 +112,19 @@ export const App = () => {
       {/** Projects */}
       <PageSection id={menuLinkConfig.projects.link}>
         <PageHeader>
-          <PageHeaderNav>Collections of my artistic endeavors</PageHeaderNav>
-          <PageHeaderHeading>Projects</PageHeaderHeading>
-          <PageHeaderDescription>{projectsConfig.description}</PageHeaderDescription>
+          <PageHeaderNav>{t('projects.nav_header')}</PageHeaderNav>
+          <PageHeaderHeading>{t('projects.header')}</PageHeaderHeading>
+          <PageHeaderDescription>{t('projects.description')}</PageHeaderDescription>
         </PageHeader>
 
         <ul className="grid grid-cols-1 gap-5 content-space lg:grid-cols-2 xl:grid-cols-3">
           {projectsConfig.projects.map((project) => (
             <li key={project.title}>
-              <ProjectCard {...project} />
+              <ProjectCard
+                {...project}
+                title={t(project.title)}
+                description={t(project.description)}
+              />
             </li>
           ))}
         </ul>
@@ -131,13 +136,17 @@ export const App = () => {
         nestedClassName="flex min-h-[45rem] flex-col-reverse items-center justify-between lg:gap-10 lg:flex-row"
         ref={contactRef}
       >
-        <div className="relative w-full flex-1 rounded-lg bg-card p-6 text-card-foreground shadowCard lg:max-w-[45vw] 2xl:max-w-[40vw]">
-          <PageHeader>
-            <PageHeaderNav>Get In Touch</PageHeaderNav>
-            <PageHeaderHeading>Contact</PageHeaderHeading>
-          </PageHeader>
-          <ContactForm className="mt-10 focus:border-none focus:outline-0 focus:ring-0" />
-        </div>
+        <Card className="w-full flex-1 lg:max-w-[45vw] 2xl:max-w-[40vw]">
+          <CardHeader className="pb-2">
+            <PageHeader>
+              <PageHeaderNav>{t('contact.nav_header')}</PageHeaderNav>
+              <PageHeaderHeading>{t('contact.header')}</PageHeaderHeading>
+            </PageHeader>
+          </CardHeader>
+          <CardContent>
+            <ContactForm className="mt-10 focus:border-none focus:outline-0 focus:ring-0" />
+          </CardContent>
+        </Card>
         {!isMobile && contactView && (
           <>
             <Suspense>
@@ -158,8 +167,8 @@ export const App = () => {
       {!isMobile && (
         <PageSection>
           <PageHeader>
-            <PageHeaderNav>Explore models</PageHeaderNav>
-            <PageHeaderHeading>Credits</PageHeaderHeading>
+            <PageHeaderNav>{t('credits.nav_header')}</PageHeaderNav>
+            <PageHeaderHeading>{t('credits.header')}</PageHeaderHeading>
           </PageHeader>
           <div>
             <Ul>

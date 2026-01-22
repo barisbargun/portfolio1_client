@@ -1,6 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import React, { lazy, Suspense, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { useTranslation } from 'react-i18next'
 import { useInView } from 'react-intersection-observer'
 import { toast } from 'sonner'
 import { z } from 'zod'
@@ -27,6 +28,7 @@ type Props = React.HTMLProps<HTMLFormElement>
 const ReCAPTCHA = lazy(() => import('react-google-recaptcha'))
 
 export const ContactForm = ({ className, ...props }: Props) => {
+  const { t } = useTranslation()
   const [ref, inView] = useInView({ triggerOnce: true, rootMargin: '400px' })
 
   const recaptchaRef = useRef<any>(null)
@@ -53,10 +55,10 @@ export const ContactForm = ({ className, ...props }: Props) => {
         recaptcha: recaptchaValue
       })
         .then((v) => {
-          if (v.status == 200) return toast.success('Message sent successfully')
+          if (v.status == 200) return toast.success(t('toast.message.success'))
         })
         .catch(() => {
-          toast.error('Failed to send message', { description: 'Please try again later.' })
+          toast.error(t('toast.message.fail'), { description: t('toast.message.fail_description') })
         })
         .finally(() => {
           setSending(false)
@@ -79,9 +81,9 @@ export const ContactForm = ({ className, ...props }: Props) => {
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Name</FormLabel>
+              <FormLabel>{t('contact.fields.name')}</FormLabel>
               <FormControl>
-                <Input placeholder="Enter your name." {...field} />
+                <Input placeholder={t('contact.fields.name_placeholder')} {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -92,9 +94,9 @@ export const ContactForm = ({ className, ...props }: Props) => {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email</FormLabel>
+              <FormLabel>{t('contact.fields.email')}</FormLabel>
               <FormControl>
-                <Input placeholder="Enter your email." {...field} />
+                <Input placeholder={t('contact.fields.email_placeholder')} {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -105,9 +107,13 @@ export const ContactForm = ({ className, ...props }: Props) => {
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Message</FormLabel>
+              <FormLabel>{t('contact.fields.message')}</FormLabel>
               <FormControl>
-                <Textarea placeholder="Enter your message." rows={7} {...field} />
+                <Textarea
+                  placeholder={t('contact.fields.message_placeholder')}
+                  rows={7}
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -123,7 +129,7 @@ export const ContactForm = ({ className, ...props }: Props) => {
           </Suspense>
         )}
         <Button disabled={sending} type="submit" variant="secondary" size="lg">
-          {sending ? 'Sending' : 'Submit'}
+          {sending ? t('buttons.pending') : t('buttons.submit')}
         </Button>
       </form>
     </Form>

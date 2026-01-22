@@ -2,7 +2,21 @@
   "role": "Web ve Mobil Geliştirici",
   "buttons": {
     "projects": "Projeler",
-    "contact_me": "İletişim"
+    "contact_me": "İletişime Geçin",
+    "submit": "Gönder",
+    "pending": "Gönderiliyor..."
+  },
+  "validation": {
+    "min": "En az {{min}} karakter girmelisiniz",
+    "max": "En fazla {{max}} karakter girebilirsiniz",
+    "email": "Geçersiz e-posta adresi"
+  },
+  "toast": {
+    "message": {
+      "success": "Mesaj başarıyla gönderildi!",
+      "fail": "Mesaj gönderilemedi.",
+      "fail_description": "Lütfen daha sonra tekrar deneyiniz."
+    }
   },
   "menu": {
     "about": "HAKKIMDA",
@@ -12,9 +26,9 @@
     "projects": "PROJELER"
   },
   "about": {
-    "nav_header": "Giriş",
+    "nav_header": "GİRİŞ",
     "header": "Hakkımda",
-    "description": "Merhaba, Marmara Üniversitesi Bilgisayar Programcılığı bölümünden mezun oldum. Stajımı Lits Consulting Şirketinde yaptım. Çocukluğumdan beri programlamayla uğraştım ve sevdim. Projelerim üzerinde çalışır ve Github'a yüklerim.",
+    "description": "Merhaba, Marmara Üniversitesi Bilgisayar Programcılığı bölümünden mezun oldum. Stajımı Lits Consulting şirketinde tamamladım. Çocukluğumdan beri programlamaya ilgi duydum. Projelerimi GitHub üzerinden paylaşıyorum.",
     "roles": {
       "web": "Frontend Web Geliştirici",
       "backend": "Backend Geliştirici",
@@ -23,55 +37,58 @@
     },
     "quote": "Performansa, güvenliğe ve temiz, okunabilir kod yazmaya özen gösteririm."
   },
-  "experiences": {
-    "nav_header": "Şu zamana kadar yaptıklarım",
-    "header": "İş deneyimleri",
-    "role": "Yazılım programlama stajyeri",
-    "descriptions": {
-      "1": "OOP, ALV, SQL komutları, Adobe Forms ve hata ayıklama da deneyim kazandım.",
-      "2": "Stajım sırasında, temiz kod yazmaya özen gösterdim ve başarıyla iki proje bitirdim.",
-      "3": "Projelerimde sınıfları ve veri tablolarını kullandım. Birden fazla tablo arasında ilişki kurarak kapsamlı SQL sorguları yazdım."
-    },
-    "date": "Ağustos 2025"
+  "experience": {
+    "nav_header": "KARİYER YOLCULUĞUM",
+    "header": "İş Deneyimleri",
+    "exps": {
+      "intern": {
+        "role": "Yazılım Programlama Stajyeri",
+        "descriptions": {
+          "1": "OOP, ALV, SQL komutları, Adobe Forms ve hata ayıklama süreçlerinde deneyim kazandım.",
+          "2": "Stajım sırasında temiz kod prensiplerine özen gösterdim ve iki projeyi başarıyla tamamladım.",
+          "3": "Projelerimde sınıfları ve veri tablolarını kullandım. Tablolar arası ilişkiler kurarak kapsamlı SQL sorguları yazdım."
+        },
+        "date": "Ağustos 2025"
+      }
+    }
   },
   "projects": {
-    "nav_header": "Sanatsal faaliyetler koleksiyonum",
+    "nav_header": "GELİŞTİRDİĞİM PROJELER",
     "header": "Projelerim",
-    "description": "Projelerimin büyük bir kısmı React, Next.js, Express, TailwindCSS ile yaptım. Fonksiyonel ve göze hitap eden web siteleri yapmayı severim.",
+    "description": "Projelerimin büyük bir kısmını React, Next.js, Express ve TailwindCSS kullanarak geliştirdim. Fonksiyonel ve estetik web siteleri tasarlamayı seviyorum.",
     "projects": {
       "carRent": {
-        "title": "Araba Kiralama Uygulaması",
-        "description": "Müşteri tarafı React ile, Admin tarafı ise Express.js ile Turborepo kullanarak yaptım. İçerik yönetici paneliyle değişiklikler yapılabilir."
+        "title": "Araç Kiralama Uygulaması",
+        "description": "Müşteri tarafını React, yönetim panelini ise Express.js ve Turborepo kullanarak geliştirdim. İçerik yönetim paneli üzerinden dinamik değişiklikler yapılabilmektedir."
       },
       "socialMedia": {
         "title": "Sosyal Medya Uygulaması",
-        "description": "Bu sosyal medya uygulamasıyla, gönderiler paylaşabilir, iletişim kurabilir ve kendi dijital kimliğinizi yaratabilirsiniz."
+        "description": "Bu uygulama ile gönderi paylaşabilir, diğer kullanıcılarla etkileşim kurabilir ve dijital kimliğinizi oluşturabilirsiniz."
       },
       "portfolio": {
         "title": "Kişisel Portfolyo",
-        "description": "Next.js ve TailwindCSS ile yapıldı. Bu Kişisel web sitesi Sizi, hizmetlerinizi ve projelerinizi tanıtır."
+        "description": "Next.js ve TailwindCSS ile geliştirildi. Sizi, hizmetlerinizi ve projelerinizi tanıtan profesyonel bir web sitesidir."
       },
       "landingPage": {
-        "title": "Landing Page",
-        "description": "Kolaylıkla kişiselleştirilebilir kurumsal bir web sitesidir. React ve TailwindCSS ile yapıldı. Ücret, Hakkımda, şartlar ve iletişim sayfaları yer alır."
+        "title": "Açılış Sayfası (Landing Page)",
+        "description": "React ve TailwindCSS ile hazırlanan, kolayca kişiselleştirilebilir kurumsal bir web sitesidir. Fiyatlandırma, Hakkımda ve İletişim gibi bölümler içerir."
       }
     }
   },
   "contact": {
-    "nav_header": "İletişime geç",
+    "nav_header": "İLETİŞİME GEÇİN",
     "header": "İletişim",
     "fields": {
       "name": "İsim",
-      "email": "Email",
+      "email": "E-posta",
       "message": "Mesaj",
-      "name_placeholder": "Adınızı girin.",
-      "email_placeholder": "Mail adresinizi girin.",
-      "message_placeholder": "Mesajınızı girin.",
-      "submit": "Gönder."
+      "name_placeholder": "Adınızı giriniz.",
+      "email_placeholder": "E-posta adresinizi giriniz.",
+      "message_placeholder": "Mesajınızı yazınız."
     }
   },
   "credits": {
-    "nav_header": "Modelleri Keşfet",
+    "nav_header": "MODELLERİ KEŞFEDİN",
     "header": "Krediler"
   }
 }

@@ -6,13 +6,8 @@ declare module 'zod' {
   }
 }
 
-z.ZodString.prototype.setLengths = function (
-  min: number,
-  max: number,
-  minMessage = `You should enter at least ${min} characters`,
-  maxMessage = `You should enter at most ${max} characters`
-) {
-  return this.min(min, minMessage).max(max, maxMessage)
+z.ZodString.prototype.setLengths = function (min: number, max: number) {
+  return this.min(min, `min=${min}`).max(max, `max=${max}`)
 }
 
 export * from 'zod' // Re-export Zod

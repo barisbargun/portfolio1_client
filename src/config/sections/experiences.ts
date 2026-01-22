@@ -10,14 +10,14 @@ type ExperiencesConfig = {
 
 const experiencesConfig: ExperiencesConfig[] = [
   {
-    role: 'experiences.role',
+    role: 'experience.exps.intern.role',
     company: 'Lits Consulting',
     descriptions: [
-      'experiences.descriptions.1',
-      'experiences.descriptions.2',
-      'experiences.descriptions.3'
+      'experience.exps.intern.descriptions.1',
+      'experience.exps.intern.descriptions.2',
+      'experience.exps.intern.descriptions.3'
     ],
-    date: 'experiences.date',
+    date: 'experience.exps.intern.date',
     icon: BriefcaseBusiness
   }
 ]

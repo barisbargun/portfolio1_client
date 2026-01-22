@@ -3,7 +3,6 @@ import assets from '@/assets'
 const screenshots = assets.screenshots
 
 type ProjectsConfig = {
-  description: string
   projects: {
     title: string
     description: string
@@ -17,11 +16,10 @@ type ProjectsConfig = {
 }
 
 export const projectsConfig: ProjectsConfig = {
-  description: 'projects.description',
   projects: [
     {
-      title: 'projects.projects.carRentApp.title',
-      description: 'projects.projects.carRentApp.description',
+      title: 'projects.projects.carRent.title',
+      description: 'projects.projects.carRent.description',
       tags: ['monorepo', 'react', 'express'],
       image: {
         src: screenshots.car_rent,
@@ -31,7 +29,7 @@ export const projectsConfig: ProjectsConfig = {
     },
     {
       title: 'projects.projects.socialMedia.title',
-      description: 'projects.projects.socialMedia.title',
+      description: 'projects.projects.socialMedia.description',
       tags: ['react', 'appwrite', 'tailwindcss'],
       image: {
         src: screenshots.snapgram,
@@ -41,7 +39,7 @@ export const projectsConfig: ProjectsConfig = {
     },
     {
       title: 'projects.projects.portfolio.title',
-      description: 'projects.projects.portfolio.title',
+      description: 'projects.projects.portfolio.description',
       tags: ['react', 'next', 'tailwindcss'],
       image: {
         src: screenshots.portfolio,
@@ -51,7 +49,7 @@ export const projectsConfig: ProjectsConfig = {
     },
     {
       title: 'projects.projects.landingPage.title',
-      description: 'projects.projects.landingPage.title',
+      description: 'projects.projects.landingPage.description',
       tags: ['next', 'tailwindcss', 'motion/react'],
       image: {
         src: screenshots.bussli,

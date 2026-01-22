@@ -39,7 +39,7 @@ export const VerticalTimelineElement = ({
       <div
         style={contentStyle}
         className={cn(
-          'vertical-timeline-element-content bg-card shadowCard',
+          'vertical-timeline-element-content border bg-card shadowCard',
 
           textClassName
         )}

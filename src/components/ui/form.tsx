@@ -14,6 +14,7 @@ import {
 
 import { cn } from '@/lib/utils'
 import { Label } from '@/components/ui/label'
+import { useTranslation } from 'react-i18next'
 
 const Form = FormProvider
 
@@ -137,11 +138,20 @@ const FormMessage = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLParagraphElement>
 >(({ className, children, ...props }, ref) => {
+  const { t } = useTranslation()
   const { error, formMessageId } = useFormField()
-  const body = error ? String(error?.message) : children
+  let body = error ? String(error?.message || '') : children
 
   if (!body) {
     return null
+  }
+
+  if (typeof body === 'string') {
+    if (body.includes('min=')) {
+      body = t('validation.min', { min: body.split('min=')[1] })
+    } else if (body.includes('max=')) {
+      body = t('validation.max', { max: body.split('max=')[1] })
+    } else body = t(body)
   }
 
   return (
