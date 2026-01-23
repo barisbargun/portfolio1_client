@@ -118,7 +118,7 @@ export const App = () => {
         </PageHeader>
 
         <ul className="grid grid-cols-1 gap-5 content-space lg:grid-cols-2 xl:grid-cols-3">
-          {projectsConfig.projects.map((project) => (
+          {projectsConfig.map((project) => (
             <li key={project.title}>
               <ProjectCard
                 {...project}
@@ -136,7 +136,7 @@ export const App = () => {
         nestedClassName="flex min-h-[45rem] flex-col-reverse items-center justify-between lg:gap-10 lg:flex-row"
         ref={contactRef}
       >
-        <Card className="w-full flex-1 lg:max-w-[45vw] 2xl:max-w-[40vw]">
+        <Card className="w-full lg:max-w-[45vw] 2xl:max-w-[40vw]">
           <CardHeader className="pb-2">
             <PageHeader>
               <PageHeaderNav>{t('contact.nav_header')}</PageHeaderNav>
