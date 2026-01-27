@@ -53,7 +53,7 @@ export const ProjectCard = ({
         #{tech}
       </strong>
     ))
-  console.log(image.srcs)
+
   const ProjectCarousels = () => (
     <Carousel opts={{ loop: true }}>
       <AspectRatio ratio={16 / 9} className="w-full overflow-hidden rounded-xl">

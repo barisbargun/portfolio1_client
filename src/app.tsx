@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react'
+import { lazy, Suspense, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useInView } from 'react-intersection-observer'
 
@@ -12,6 +12,7 @@ import { PageSection } from './components/global/page-section'
 import { CardBasic3D } from './components/shared/cards/basic-3d'
 import { ExperienceCard } from './components/shared/cards/experience'
 import { ProjectCard } from './components/shared/cards/project-card'
+import { ProjectTab } from './components/shared/project-tabs'
 import { Button } from './components/ui/button'
 import { Card, CardContent, CardHeader } from './components/ui/card'
 import { Spotlight } from './components/ui/spotlight'
@@ -20,7 +21,7 @@ import { menuLinkConfig } from './config/nav'
 import { aboutConfig } from './config/sections/about'
 import { creditsConfig } from './config/sections/credits'
 import { experiencesConfig } from './config/sections/experiences'
-import { projectsConfig } from './config/sections/projects'
+import { projectsConfig, projectsTags } from './config/sections/projects'
 import { siteConfig } from './config/site'
 import { techsConfig } from './config/techs'
 import { ContactForm } from './features/contact/components/form'
@@ -32,6 +33,7 @@ const CanvasStars = lazy(() => import('./components/shared/canvases/stars'))
 
 export const App = () => {
   const { t } = useTranslation()
+  const [activeTab, setActiveTab] = useState<string>('all')
 
   const [contactRef, contactView] = useInView({ triggerOnce: true, rootMargin: '400px' })
   const isMobile = useIsMobile()
@@ -48,10 +50,10 @@ export const App = () => {
         <div className="absolute left-0 top-0 size-full bg-gradient-to-br from-background/90 to-background" />
 
         <div className="relative flex flex-col items-center">
-          <H1 className="max-w-xs text-balance bg-gradient-to-b from-neutral-600 to-neutral-900 bg-clip-text capitalize text-transparent dark:from-neutral-50 dark:to-neutral-400 dark:drop-shadow-whiteGlow sm:max-w-xl xl:max-w-2xl">
+          <H1 className="max-w-xs text-balance bg-gradient-to-b from-neutral-600 to-neutral-900 bg-clip-text pb-6 capitalize text-transparent dark:from-neutral-50 dark:to-neutral-400 dark:drop-shadow-whiteGlow sm:max-w-xl lg:pb-8 xl:max-w-2xl">
             {t(siteConfig.role)}
           </H1>
-          <div className="mt-6 lg:mt-8 [&_button]:rounded-lg">
+          <div className="[&_button]:rounded-lg">
             <a href={'#' + menuLinkConfig.projects.link}>
               <Button size={isMobile ? 'default' : 'lg'}>{t('buttons.projects')}</Button>
             </a>
@@ -62,10 +64,16 @@ export const App = () => {
             </a>
           </div>
 
-          <div className="mx-auto flex w-fit max-w-sm flex-wrap justify-center gap-6 content-space sm:max-w-2xl xl:gap-8 [&_svg]:size-7 [&_svg]:text-neutral-500 sm:[&_svg]:size-10">
+          <div className="mx-auto flex w-fit max-w-sm flex-wrap justify-center gap-6 content-space sm:max-w-2xl xl:gap-10">
             {techsConfig.map((tech, index) => (
               <div key={index} className="flex items-center space-x-1 sm:space-x-2">
-                {tech.icon && <tech.icon />}
+                {tech.icon && (
+                  <img
+                    src={tech.icon}
+                    alt={`tech-icon-${index + 1}`}
+                    className="size-9 grayscale"
+                  />
+                )}
                 <span className="text-sm font-semibold text-neutral-500">{tech.title}</span>
               </div>
             ))}
@@ -117,16 +125,29 @@ export const App = () => {
           <PageHeaderDescription>{t('projects.description')}</PageHeaderDescription>
         </PageHeader>
 
-        <ul className="grid grid-cols-1 gap-5 content-space lg:grid-cols-2 xl:grid-cols-3">
-          {projectsConfig.map((project) => (
-            <li key={project.title}>
-              <ProjectCard
-                {...project}
-                title={t(project.title)}
-                description={t(project.description)}
-              />
-            </li>
+        <ul className="mb-4 flex gap-4 content-space">
+          {projectsTags.map((tag) => (
+            <ProjectTab
+              isActive={activeTab === tag.value}
+              key={tag.value}
+              onClick={() => setActiveTab(activeTab === tag.value ? 'all' : tag.value)}
+              {...tag}
+            />
           ))}
+        </ul>
+
+        <ul className="grid grid-cols-1 gap-5 lg:grid-cols-2 xl:grid-cols-3">
+          {projectsConfig
+            .filter((project) => activeTab === 'all' || project.tags.includes(activeTab))
+            .map((project) => (
+              <li key={project.title}>
+                <ProjectCard
+                  {...project}
+                  title={t(project.title)}
+                  description={t(project.description)}
+                />
+              </li>
+            ))}
         </ul>
       </PageSection>
 

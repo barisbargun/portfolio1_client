@@ -1,6 +1,4 @@
-import assets from '@/assets'
-
-const icons = assets.serviceIcons
+import { icons } from '@/assets'
 
 type AboutConfig = {
   roles: {

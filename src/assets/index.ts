@@ -1,17 +1,4 @@
 /** Screenshots */
-// import car_rent from './screenshots/car-rent.avif'
-// import portfolio from './screenshots/portfolio.avif'
-// import snapgram from './screenshots/snapgram.avif'
-// import bussli1 from './screenshots/bussli/1.avif'
-// import bussli2 from './screenshots/bussli/2.avif'
-// import bussli3 from './screenshots/bussli/3.avif'
-
-// const screenshots = {
-//   car_rent: [car_rent],
-//   portfolio: [portfolio],
-//   snapgram: [snapgram],
-//   bussli: [bussli1, bussli2, bussli3]
-// }
 
 const modules = import.meta.glob('./screenshots/**/*.avif', {
   eager: true,
@@ -36,19 +23,34 @@ for (const path of Object.keys(modules)) {
 }
 
 /** Service Icons */
-import backend from './serviceIcons/backend.avif'
-import creator from './serviceIcons/creator.avif'
-import mobile from './serviceIcons/mobile.avif'
-import web from './serviceIcons/web.avif'
+import backend from './icons/service/backend.avif'
+import creator from './icons/service/creator.avif'
+import mobile from './icons/service/mobile.avif'
+import web from './icons/service/web.avif'
 
-const serviceIcons = {
+/** Techs Icons */
+import express from './icons/techs/express.svg'
+import figma from './icons/techs/figma.svg'
+import next from './icons/techs/next.svg'
+import react from './icons/techs/react.svg'
+import tailwindcss from './icons/techs/tailwindcss.svg'
+import vue from './icons/techs/vue.svg'
+
+/** Other Icons */
+import star from './icons/star.svg'
+
+export const icons = {
   backend,
   creator,
   mobile,
-  web
-}
+  web,
 
-export default {
-  screenshots,
-  serviceIcons
+  express,
+  figma,
+  next,
+  react,
+  tailwindcss,
+  vue,
+
+  star
 }

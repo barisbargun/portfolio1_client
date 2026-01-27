@@ -1,6 +1,4 @@
-import assets from '@/assets'
-
-const screenshots = assets.screenshots
+import { icons, screenshots } from '@/assets'
 
 export type ProjectConfig = {
   title: string
@@ -15,9 +13,19 @@ export type ProjectConfig = {
 
 export const projectsConfig: ProjectConfig[] = [
   {
+    title: 'projects.projects.newtod.title',
+    description: 'projects.projects.newtod.description',
+    tags: ['vue', 'supabase', 'tailwindcss'],
+    image: {
+      srcs: screenshots.newtod,
+      alt: 'newtod app'
+    },
+    url: 'https://barisolgun-newtod.netlify.app/'
+  },
+  {
     title: 'projects.projects.carRent.title',
     description: 'projects.projects.carRent.description',
-    tags: ['monorepo', 'react', 'express'],
+    tags: ['react', 'express', 'monorepo'],
     image: {
       srcs: screenshots.car_rent,
       alt: 'car rent app'
@@ -37,7 +45,7 @@ export const projectsConfig: ProjectConfig[] = [
   {
     title: 'projects.projects.portfolio.title',
     description: 'projects.projects.portfolio.description',
-    tags: ['react', 'next', 'tailwindcss'],
+    tags: ['next.js', 'tailwindcss', 'framer-motion'],
     image: {
       srcs: screenshots.portfolio,
       alt: 'portfolio app'
@@ -47,11 +55,39 @@ export const projectsConfig: ProjectConfig[] = [
   {
     title: 'projects.projects.landingPage.title',
     description: 'projects.projects.landingPage.description',
-    tags: ['next', 'tailwindcss', 'motion/react'],
+    tags: ['react', 'tailwindcss', 'framer-motion'],
     image: {
       srcs: screenshots.bussli,
       alt: 'landing page'
     },
     url: 'https://barisolgun-bussli.netlify.app/'
+  }
+]
+
+export type ProjectTagConfig = {
+  label: string
+  value: string
+  icon: string
+  color: string
+}
+
+export const projectsTags: ProjectTagConfig[] = [
+  {
+    label: 'React',
+    value: 'react',
+    icon: icons.react,
+    color: '#61DAFB'
+  },
+  {
+    label: 'Vue',
+    value: 'vue',
+    icon: icons.vue,
+    color: '#42B883'
+  },
+  {
+    label: 'Next.js',
+    value: 'next.js',
+    icon: icons.next,
+    color: '#bbb'
   }
 ]

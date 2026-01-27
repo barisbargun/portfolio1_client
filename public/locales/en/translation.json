@@ -57,6 +57,10 @@
     "header": "Projects",
     "description": "My projects are mostly made with React, Next.js, Express.js, and Tailwind CSS. I enjoy building web applications that are both functional and visually appealing.",
     "projects": {
+      "newtod": {
+        "title": "TO-DO App",
+        "description": "A To-do application that allows you to add tabs and tasks, and drag and drop them into your timeline. A weekly activities chart is also implemented. The application features dark and light modes, an auto-translation feature, and responsive design."
+      },
       "carRent": {
         "title": "Car Rent App",
         "description": "Client-side powered by ReactJS, backend by ExpressJS in Turborepo. The car rental app includes a content management system for seamless customization."

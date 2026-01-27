@@ -1,43 +1,38 @@
-import { IconAbap } from '@/components/icons/techs/abap'
-import { IconExpressjs } from '@/components/icons/techs/expressjs'
-import { IconFigma } from '@/components/icons/techs/figma'
-import { IconNextjs } from '@/components/icons/techs/nextjs'
-import { IconReact } from '@/components/icons/techs/react'
-import { IconTailwindcss } from '@/components/icons/techs/tailwindcss'
+import { icons } from '@/assets'
 
 type TechsConfig = {
-  icon?: ({ className }: any) => any
   title: string
+  icon?: string
 }
 
 const techsConfig: TechsConfig[] = [
   {
     title: 'React',
-    icon: IconReact
+    icon: icons.react
+  },
+  {
+    title: 'Vue',
+    icon: icons.vue
   },
   {
     title: 'Next.js',
-    icon: IconNextjs
-  },
-  {
-    title: 'Express.js',
-    icon: IconExpressjs
+    icon: icons.next
   },
   {
     title: 'React Native',
-    icon: IconReact
+    icon: icons.react
   },
   {
-    title: 'SAP/ABAP',
-    icon: IconAbap
+    title: 'Express.js',
+    icon: icons.express
   },
   {
     title: 'Figma',
-    icon: IconFigma
+    icon: icons.figma
   },
   {
     title: 'TailwindCSS',
-    icon: IconTailwindcss
+    icon: icons.tailwindcss
   }
 ]
 

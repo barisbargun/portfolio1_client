@@ -57,6 +57,10 @@
     "header": "Projelerim",
     "description": "Projelerimin büyük bir kısmını React, Next.js, Express ve TailwindCSS kullanarak geliştirdim. Fonksiyonel ve estetik web siteleri tasarlamayı seviyorum.",
     "projects": {
+      "newtod": {
+        "title": "TO-DO Uygulaması",
+        "description": "Gruplar ve görevler ekleyip sürükle-bırak yöntemiyle istediğiniz saate ekleyebildiğiniz ve haftalık aktivitenizi çıkaran bir uygulamadır. Açık ve karanlık mod ve dil değiştirme fonksiyonu da mevcuttur."
+      },
       "carRent": {
         "title": "Araç Kiralama Uygulaması",
         "description": "Müşteri tarafını React, yönetim panelini ise Express.js ve Turborepo kullanarak geliştirdim. İçerik yönetim paneli üzerinden dinamik değişiklikler yapılabilmektedir."
