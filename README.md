@@ -31,4 +31,4 @@ A personal portfolio website developed with React.js. It contains 6 sections alo
 
 **Interactive Animations**: Utilizes animations powered by framer motion and Aceternity ui
 
-**Responsive Design**: Ensures optimal display and functionality across all devices.
+**Responsive Design**: Ensures optimal display and functionality across all devices. 
